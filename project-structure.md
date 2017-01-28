@@ -15,7 +15,7 @@ I prefer to use a build tool like Maven or Gradle to generate a standardised pro
 The generated project can be imported into an IDE of choice or even be edited using a simple texteditor.
 
 Maven and Gradle use an opinionated approach and assume that you follow the conventions and use their default project structure.
-The disadvantage of this approach is reduced flexibility, but the big advantage is standardisedation and less configuration.
+The disadvantage of this approach is reduced flexibility, but the big advantage is standardisation and less configuration.
 It is still possible, but not recommended, to add specific configuration to the build files to use your own structure.
 
 As always, it is best, to stick to the standards and use the default structure defined by the build tools.
@@ -125,7 +125,7 @@ mkdir sample-application && cd sample-application
 gradle init --type=java-application
 ```
 
-The project can be build and run using
+The project can be build and started using
 ```
 gradle run
 ```
