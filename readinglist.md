@@ -9,6 +9,7 @@ Currently Reading
 
 Queued
 ------
+- Release It! Michael T. Nygard
 - Effective Java
 - Refactoring
 - Domain-Driven Design
@@ -23,8 +24,6 @@ Finished
 - The Software Craftsman: Professionalism, Pragmatism, Pride, Sandro Mancuso, Prentice Hall (August 2016)
 - The Clean Coder: A Code of Conduct for Professional Programmers, Robert C. Martin, Prentice Hall (July 2016)
 - OCA: Oracle Certified Associate Java SE 8 Programmer I Study Guide, Jeanne Boyarsky & Scott Selikoff (March - May 2015)
-- Maven (2014)
-- Git (2014)
 - Head First Servlets & JSP, Bryan Basham & Kathy Sierra & Bert Bates, O'Reilly (January 2014) 
 - Clean Code, Robert C. Martin, Prentice Hall (Oktober - November 2013)
 - RESTful Java with JAX-RS, Bill Burke, O'Reilly (September 2013)
