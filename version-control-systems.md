@@ -1,8 +1,6 @@
 Version control systems 
 =======================
 
-Overview
---------
 Version control systems (VCS) are an essential tool of a professional software developer.
 VCS are like a safety net for your project directory. 
 Simplified, they provide the functionality of the undo and redo buttons known from text processors for a set of files.
@@ -25,9 +23,9 @@ Non-conflicting changes can be  merged automatically by the VCS.
 Only in the case of conflicting changes the developers have to take appropriate action.
 
 Popular version control systems are:
-- [CVS](http://savannah.nongnu.org/projects/cvs)
-- [SVN](https://subversion.apache.org/)
-- [Git](https://git-scm.com/)
+* [CVS](http://savannah.nongnu.org/projects/cvs)
+* [SVN](https://subversion.apache.org/)
+* [Git](https://git-scm.com/)
 
 I prefer using Git, which is state-of-the art and offers improvements like distributed repositories, offline support and fast and easy branching.
 It is possible to create a local repository to start working on a local project on your own but with version control right from the start. Later you can switch to a remote repository on a central server and transfer the project to this repository.
