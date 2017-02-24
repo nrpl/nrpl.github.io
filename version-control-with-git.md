@@ -82,8 +82,9 @@ git add hello.txt
 ```
 The file is now in the Staging Area of git, which is used to prepare
 a set of files that will be committed to the repository.
+You can add other files to the Staging Area.
 
-To finally commit the single file to the repository together with a commit message describing the changes use this command:
+To finally commit the contents of the Staging Area to the repository together with a commit message describing the changes use this command:
 ```
 git commit -m "Add file to git."
 ```
@@ -96,8 +97,8 @@ Typically the following types of files should not be added to version control:
 * generated source files
 * temporary files
 
-Git uses a special file ``.gitignore`` to manage files and file patterns which should not be watched.
-To initially add such a file, you have to create it and add it to the git repo:
+Git uses a special file named ``.gitignore`` to manage files and file patterns which should not be watched.
+To initially add such a file, you have to create it and add it to the git repo to make it available for contributors:
 ```
 echo *.class > .gitignore
 git add .gitignore
