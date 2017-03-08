@@ -17,6 +17,7 @@ Queued
 - Agile Software Development: Principles, Patterns and Practices
 - The Mythical Man Month
 - Patterns of Enterprise Application Architecture
+- Growing Object-Oriented Software, Guided by Tests by Steve Freeman and Nat Pryce
 
 Finished
 --------
