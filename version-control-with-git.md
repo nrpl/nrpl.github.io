@@ -112,6 +112,9 @@ GitHub offers a [collection of typically gitignore templates](https://github.com
 
 Switch between Versions
 -----------------------
+* switch local workspace to a specific version:
+  * ``git checkout commitid``  
+  * ``git checkout tagname``
 - switch directory to a specific revision
 - switch only single files to a specific revision
 
@@ -138,19 +141,34 @@ Undo changes
 
 Branching
 ---------
-- list local branches
-- list remote branches
-- create new local branche
-- add local branch to remote repository
-- delete local branch
-- delete remote branch
+* list local branches: ``git branch -l``
+* list remote branches: ``git branch -r``
+* list local and remotes: ``git branch -a``
+* create new local branche: ``git checkout -b my-new-branch``
+* add local branch to remote repository: ``git push -u origin my-new-branch``
+* delete local branch: ``git branch -d my-new-branch``
+* delete remote branch: ``git branch -D my-new-branch``
 
 
 Merging
 -------
-- merge other branch into own branch
-- deal with conflicts
+To merge another branch into the branch you are working on follow these steps:
+* switch to the branch you would like to merge into yours and pull remote changes:
+  * ``git checkout otherbranch``
+  * ``git pull``
+* switch back to you branch and merge:
+  * ``git checkout yourbranch``
+  * ``git merge other branch``
+  
+Git tries to merge the changes. If there are conflicts that can not be resolved automatically,
+you have to solve them on you own.
+When you are finished you have to commit the changes to finish the merge process.
 
+Tagging
+-------
+* show tags: ``git tag``
+* create local tag: ``git tag -a my-tag-name``
+* push local tag to remote repository: ``git push origin my-tag-name``
 
 Additional information
 ----------------------
