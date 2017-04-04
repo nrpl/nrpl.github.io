@@ -3,6 +3,7 @@ Readinglist
 
 Currently Reading
 -----------------
+- [Effective Java, Joshua Bloch, Addison Wesley (since April 2017)](effective-java)
 - Apprenticeship Patterns, David H. Hoover & Adewale Oshineye, O'Reilly (since August 2016)
 - Code Complete, Second Edition, Steve McConnell, Microsoft Press (since September 2016)
 - Test-Driven Development by Example, Kent Beck, Addison Wesley (since August 2016)
@@ -10,7 +11,6 @@ Currently Reading
 Queued
 ------
 - Release It! Michael T. Nygard
-- Effective Java
 - Refactoring
 - Domain-Driven Design
 - Beyond Legacy Code
