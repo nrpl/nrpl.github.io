@@ -1,10 +1,11 @@
 Effective Java
 ==============
 This document sums up the advices of Joshua Bloch's Book Effective Java.
-Chapter 1: Introduction
------------------------
-Chapter 2: Creating and Destroying objects
-------------------------------------------
+## Chapter 1: Introduction
+
+
+
+## Chapter 2: Creating and Destroying objects
 Item 1: Consider static factory methods instead of constructors
 * static factory method returns instance of class
 * advantages
@@ -66,8 +67,7 @@ Item 6: TBD
 Item 7: TBD
 
 
-Chapter 8: General Programming
-------------------------------
+## Chapter 8: General Programming
 Item 45: Minimize Scope of local Variables
 * Declare it where it is first used
 * Initialize variables sensibly on declaration
