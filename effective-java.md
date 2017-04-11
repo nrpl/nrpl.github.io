@@ -1,6 +1,70 @@
 Effective Java
 ==============
 This document sums up the advices of Joshua Bloch's Book Effective Java.
+Chapter 1: Introduction
+-----------------------
+Chapter 2: Creating and Destroying objects
+------------------------------------------
+Item 1: Consider static factory methods instead of constructors
+* static factory method returns instance of class
+* advantages
+  * factory methods are named, constructors not
+  * construtors create new objects, factory methods can reuse objects
+  * factory methods can return subtypes, construtors not
+* disadvantages
+  * classes without public/protected constructor can not be subclassed
+  * factory methods are not distinguishable from other methods
+  * not useful for many parameters (use builder, see Item 2)
+* naming: valueOf(...), of(...), getInstance(), newInstance(), getType(), newType()
+
+Item 2: Consider builder when faced with many constructor parameters
+* avoid using telescoping constructor pattern (many constructors which call each other successively)
+* java beans may be in inconsistent state partway through its construction (setter)
+* Builder Pattern combines readability of Beans and safety of telescoping constructor
+* Builder Pattern simulates names optional parameters
+* Builder Pattern is useful for classes that would have many constructor/factory-method parameters
+* Usage:
+  ```
+  WeatherConditions weatherConditions = WeatherConditions.Builder().temperature(23).humidity(40).cloudBase(3000).build();
+  ```
+* Implementation:
+  ```
+  public class WeatherConditions {
+    private final int temperature;
+    private final int humidity;
+    private final int cloudBase;
+    ...
+
+    public static class Builder() {
+      private int temperature = 0;
+      private int humidity = 0;
+      private int cloudBase = 0;
+
+      public Builder temperature(int temperature) {
+          this.temperature = temperature;
+          return this;
+      }
+
+      ...
+
+      public WeatherConditions build() {
+        return new WeatherConditions(this);
+      }
+    }
+
+    private WeatherConditions(Builder builder) {
+      this.temperature = builder.temperature;
+      ...
+    }
+  }
+  ```
+
+Item 3: TBD
+Item 4: TBD
+Item 5: TBD
+Item 6: TBD
+Item 7: TBD
+
 
 Chapter 8: General Programming
 ------------------------------
