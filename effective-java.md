@@ -60,9 +60,31 @@ Item 2: Consider builder when faced with many constructor parameters
   }
   ```
 
-Item 3: TBD
-Item 4: TBD
-Item 5: TBD
+Item 3: Enforce the singleton property with a private constructor pr an enum type
+* there are different approaches to implement singleton
+* a single-element enum type is the best way!
+  ```
+  public enum MySingleton {
+    INSTANCE;
+
+    public void doSomething() {
+      ...
+    }
+  }
+  ```
+
+Item 4: Enforce noninstantiability with a private constructor
+* utility classes group static methods and fields and should not be instantiated
+* prevent instantiation with a private constructor
+* to prevent instantiation from the class itself throw an Exception in the constructor
+* do not use abstract classes for this purpose
+
+Item 5: Avoid creating unnecessary objects
+* immutable objects should not be created using the constructor, instead the static factory should be used which reuses existent objects
+* never use `new String("...")``
+* consider moving local variables into fields which are initialized only once
+* prefer primitives to boxed primitives and watch out for autoboxing
+
 Item 6: TBD
 Item 7: TBD
 
