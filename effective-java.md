@@ -120,7 +120,7 @@ Item 47: Know and use the libraries
 * use expert knowledge and experience in practice by using standard libraries
 * don't reinvent the wheel
 
-Item 48: Avoid floar and double if exact answers are required
+Item 48: Avoid float and double if exact answers are required
 * float and double are primarily designed for engineering and scientific needs
 * they are NOT designed for monetary calculations
 * use BigDecimal, int or long for monetary calculations
