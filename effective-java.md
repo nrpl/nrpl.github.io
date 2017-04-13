@@ -85,9 +85,25 @@ Item 5: Avoid creating unnecessary objects
 * consider moving local variables into fields which are initialized only once
 * prefer primitives to boxed primitives and watch out for autoboxing
 
-Item 6: TBD
-Item 7: TBD
+Item 6: Eliminate obsolete object references
+* null out obsolete references when managing the memory, e.g. shrinking arrays, working with caches, listeners and callbacks
+* but nulling out references should be the exception
 
+Item 7: Avoid finalizers
+* as a rule of thumb: avoid finalizers
+* finalizers are not guaranteed to be executed promptly
+* never do anything time-critical in a finalizer
+  * do not close files in a finalizer
+* never depend on a finalizer to update critical persistent state
+* using finalizers causes severe performance penalties
+* exceptions in finalizers do not print stacktraces, they just terminate silently
+* do provide an explicit termination method and call this method after using the object
+  * see close method of InputStream
+*  use try-finally and call the close method in the finally block
+* finalizers can be used as last resort to call the close method, but then they should log an warning to indicate this flaw
+
+## Chapter 3: Methods Common to All Objects
+TBD
 
 ## Chapter 8: General Programming
 Item 45: Minimize Scope of local Variables
