@@ -103,6 +103,63 @@ Item 7: Avoid finalizers
 * finalizers can be used as last resort to call the close method, but then they should log an warning to indicate this flaw
 
 ## Chapter 3: Methods Common to All Objects
+Item 8: Conform to the general contract when overriding equals
+* value classes should override equals to test for logical equality
+* enum classes and Singletons do not need to override equals
+* do not override equals in these cases:
+  * each instance of the class is inherently unique (e.g. Thread)
+  * a "logical equality" test is not needed (e.g. provided by superclass) or wanted
+  * you are certain, that the equals method will never be invoked (private or package-private classes),
+  but then you should provide something like this:
+  ```
+  @Override public boolean equals(Object obj) {
+    throw new AssertionError();
+  }
+  ```
+* always override hashCode when you override equals  
+* the contract of equals:
+  * Reflexivity: An object must be equal to itself
+  * Symmetry: a.equals(b) == b.equals(a)
+  * Transitivity: a.equals(b), b.equals(c) then a.equals(c)
+  * Consistency: a.equals(b) should always return the same result unless one or both objects are changed
+  * Non-nullity: equals must return false on null and though must be null-safe
+* do not write an equals method that depends on unreliable resources
+* implement equals by following these steps:
+  * use the == operator to check if the argument is a reference to this object
+  * use the instanceof operator to check if the argument has the correct type
+  * Cast the object to the correct type
+  * check for each significant field that the corresponding field of the argument matches
+    * use == for primitives excluding float and double
+    * use Float.compare / Double.compare for float and double
+    * use equals for object references
+    * use Arrays.equals for Arrays
+  * write unit tests to check the functionality
+* Example:
+  ```
+  TBD
+  ```
+Item 9: Always override hashCode when you override equals
+* you must override hashCode() when you override equals
+* equal objects must have equal hashCodes
+* unequal objects should have unequal hash codes
+* hashCode is used in hash-based collections to distribute values into buckets
+* a good hashCode method should distribute all instances evenly across all possible hash values
+* you must exclude fields from the hashCode computation that are not used in equals
+* If performance is important consider caching the hash value
+* do not omit significant values from the computation for performacne reasons, this may lead to collisions and bad performance (O^2) of hash-based collections
+* state-of-the-art hash functions are a research topic and best left mathematicians
+* Example:
+  ```
+  TBD
+  ```
+
+### Item 10: tostring
+TBD
+
+### Item 11: clone
+TBD
+
+### Item 12: comparable
 TBD
 
 ## Chapter 8: General Programming
