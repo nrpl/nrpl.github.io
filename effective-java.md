@@ -193,8 +193,10 @@ This document sums up the advices of Joshua Bloch's Book Effective Java.
     }
   ```
 
-## Chapter 4: Classes and interfaces
-
+<!-- ## Chapter 4: Classes and interfaces (KW 18) -->
+<!-- ## Chapter 5 (KW 20) -->
+<!-- ## Chapter 6 (KW 21) -->
+<!-- ## Chapter 7 (KW 22) -->
 
 ## Chapter 8: General Programming
 ### Item 45: Minimize Scope of local Variables
@@ -254,3 +256,7 @@ This document sums up the advices of Joshua Bloch's Book Effective Java.
 * method and field names: verb or verb phrase, first letter of first word in lowercase, first letter of each subsequent word uppercase, e.g. calculateDeviation
 * methods that return a boolen should start with 'is', e.g. isValidSelection
 * constants: uppercase letters separated by underscore, e.g. MIN_VALUE
+
+<!-- ## Chapter 9 (KW 23) -->
+<!-- ## Chapter 10 (KW 24) -->
+<!-- ## Chapter 11 (KW 25) -->
