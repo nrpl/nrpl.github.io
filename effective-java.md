@@ -193,7 +193,17 @@ This document sums up the advices of Joshua Bloch's Book Effective Java.
     }
   ```
 
-<!-- ## Chapter 4: Classes and interfaces (KW 18) -->
+## Chapter 4: Classes and interfaces
+### Item 13: Minimize the accessibility of classes and members
+* internal data and implementatio details should be hidden and only be accessible through an well defined API
+* instance fields should never be public
+* public static final fields should only hold references to immutable classes
+* a class should never have a public static final array field
+  * make it private and provide an access method which returns unmodifiable lists or cloned array
+* make each class or member as inaccessible as possible
+  * private -> package private ---> protected -> public
+  * proteced and public define the public API, try to avoid them
+
 <!-- ## Chapter 5 (KW 20) -->
 <!-- ## Chapter 6 (KW 21) -->
 <!-- ## Chapter 7 (KW 22) -->
