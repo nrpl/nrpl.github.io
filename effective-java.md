@@ -60,7 +60,7 @@ This document sums up the advices of Joshua Bloch's Book Effective Java.
   }
   ```
 
-### Item 3: Enforce the singleton property with a private constructor pr an enum type
+### Item 3: Enforce the singleton property with a private constructor or an enum type
 * there are different approaches to implement singleton
 * a single-element enum type is the best way!
   ```
