@@ -212,6 +212,7 @@ This document sums up the advices of Joshua Bloch's Book Effective Java.
   * provide mutator methods (setter) for mutable attributes
 
 ### Item 15: Minimize mutability
+* you should always make small value classes immutable
 * classes should be immutable unless there is a very good reason to make them mutable
   * do not provide mutators/setters unless needed
   * make every field final and private unless there is a compelling reason to make it not final/private
@@ -220,8 +221,19 @@ This document sums up the advices of Joshua Bloch's Book Effective Java.
 * if a class cannot be made immutable, limit its mutability as much as possible
   * only provide mutators/setters on necessary fields
 * immutable objects are thread-safe and can be shared, they make great building blocks for other objects
+* their only disadvantage is performance, due to object creation
 
-
+### Item 16: Favor composition over inheritance
+* do not use implementation inheritance over package-boundaries
+* subclass depends on implementation details of superclass, therefore they have evolve in tandem
+* use composition-and-forwarding instead of inheritance
+  * forwarding class implements interface, holds an instance of and delegates to a concrete implementation for reusing its functionality
+  * wrapper class extends forwarding class to add extra functionality
+* see Decorator pattern
+* only use implementation inheritance if there is a real is-a relationship
+  * a stack is not a vector, but can be implemented using a vector
+* using inheritance you use the same API as the superclass
+* using composition you design your own API  
 <!-- ## Chapter 5 (KW 20) -->
 <!-- ## Chapter 6 (KW 21) -->
 <!-- ## Chapter 7 (KW 22) -->
