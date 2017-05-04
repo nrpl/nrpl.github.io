@@ -204,6 +204,24 @@ This document sums up the advices of Joshua Bloch's Book Effective Java.
   * private -> package private ---> protected -> public
   * proteced and public define the public API, try to avoid them
 
+### Item 14: In public classes use accessor methods not public fields
+* if a class is package-private or private it is okay to use public fields
+* if a class is accessible outside its package:
+  * do not use public fields for mutable attributes
+  * provide accessor methods (getter)
+  * provide mutator methods (setter) for mutable attributes
+
+### Item 15: Minimize mutability
+* classes should be immutable unless there is a very good reason to make them mutable
+  * do not provide mutators/setters unless needed
+  * make every field final and private unless there is a compelling reason to make it not final/private
+  * prevent subclassing, e.g. by making it final
+  * ensure exclusive access to mutable objects (defensive copies in constructors/accessors)
+* if a class cannot be made immutable, limit its mutability as much as possible
+  * only provide mutators/setters on necessary fields
+* immutable objects are thread-safe and can be shared, they make great building blocks for other objects
+
+
 <!-- ## Chapter 5 (KW 20) -->
 <!-- ## Chapter 6 (KW 21) -->
 <!-- ## Chapter 7 (KW 22) -->
