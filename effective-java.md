@@ -307,8 +307,19 @@ This document sums up the advices of Joshua Bloch's Book Effective Java.
 * raw types are still supported to provide migration compatibility
 * you lose type safety if you use raw types like List, but not if you use a parameterized type like List<Object>
 * use generics with unbounded wildcard type List<?> if you don't know which type is used
-*
+* you must use raw types in class literals, e.g. String[].class but not List<String>.class
+* you must use raw types with instanceof operator
+* Set<Object> is a parameterized type representing a set that can contain objects of any type
+* Set<?> is a wildcard type representing a set that can contain only objects of some unknown type
+* Set is a raw type which is not using the benefits of the generic type system
+
 ### Item 24: Eliminate unchecked warnings
+* unchecked type warnings are common when using generics
+* eliminate every unchecked warning that you can
+* if you can't eliminate a warning, you have to prove that the code is typesafe. then you can suppress the warning with @SupressWarnings("unchecked")
+* always use the SupressWarnings annotation on the smallest scope possible
+* every time you use an SupressWarnings annotation, add a comment describing why it is safe
+
 ### Item 25: Prefer lists to arrays
 ### Item 26: Favor generic types
 ### Item 27: Favor generic methods
