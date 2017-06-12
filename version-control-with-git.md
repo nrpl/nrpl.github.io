@@ -42,13 +42,18 @@ Using a remote repository
 Git repositories can be hosted on a central server like GitHub.
 You can check if your local repository is linked to a remote repository:
 ```
-git remote
+git remote -v
 ```
 If no remote name is printed, then no remote repository is configured.
 
 To add a remote repository with the name origin use
 ```
 git remote add origin https://github.com/nrpl/samplerepo.git
+```
+
+To change an existing remote url to another one use
+```
+git remote set-url origin https://new-url.git
 ```
 
 To get the changes from a remote repository use
@@ -127,10 +132,10 @@ Undo changes
 - undo change which is already in the staging area
 
 ### Local Repository
-- change commit message of a commit but not pushed change
+- change commit message of a committed but not yet pushed change: ``git commit --amend`
 - add file to a committed but not pushed change
 - remove file from a committed but not pushed change
-- undo change which is committed but not pushed
+- undo change which is committed but not pushed: ``git reset --hard origin/<branchname>``
 
 ### Remote Repository
 - change commit message of a pushed commit but not pushed change
@@ -159,7 +164,7 @@ To merge another branch into the branch you are working on follow these steps:
 * switch back to you branch and merge:
   * ``git checkout yourbranch``
   * ``git merge other branch``
-  
+
 Git tries to merge the changes. If there are conflicts that can not be resolved automatically,
 you have to solve them on you own.
 When you are finished you have to commit the changes to finish the merge process.
