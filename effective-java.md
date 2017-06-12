@@ -5,7 +5,6 @@ This document sums up the advices of Joshua Bloch's Book Effective Java.
 ## Chapter 1: Introduction
 
 
-
 ## Chapter 2: Creating and Destroying objects
 ### Item 1: Consider static factory methods instead of constructors
 * static factory method returns instance of class
@@ -300,15 +299,26 @@ This document sums up the advices of Joshua Bloch's Book Effective Java.
 ## Chapter 5: Generics
 * Generics since Java 1.5 (09/2004)
 * Compiler adds casts automatically at compile time
+* generic types = classes/interfaces with type parameters, e.g. List<E>
+* generic type information is only used at compile time, it is erased at runtime
 
 ### Item 23: Don't use raw types in new code
+* if you use raw types, you lose all the safety and benefits of generics
+* raw types are still supported to provide migration compatibility
+* you lose type safety if you use raw types like List, but not if you use a parameterized type like List<Object>
+* use generics with unbounded wildcard type List<?> if you don't know which type is used
+*
 ### Item 24: Eliminate unchecked warnings
 ### Item 25: Prefer lists to arrays
 ### Item 26: Favor generic types
 ### Item 27: Favor generic methods
 ### Item 28: Use bounded wildcards to increase API flexibility
 ### Item 29: Consider typesafe heterogeneous containers
+
+
 <!-- ## Chapter 6 (DI 21, 147-180) -->
+
+
 <!-- ## Chapter 7 (MI 22, 181-208) -->
 
 
