@@ -335,8 +335,12 @@ This document sums up the advices of Joshua Bloch's Book Effective Java.
 * use generics for your own method declarations to prevent type casts in client code
 
 ### Item 28: Use bounded wildcards to increase API flexibility
-### Item 29: Consider typesafe heterogeneous containers
+* using wildcard types in your API makes it far more flexible
+* if you are providing a library which is widely used, wildcard types should be considered mandatory
 
+### Item 29: Consider typesafe heterogeneous containers
+* the collections API is restricted to a fixed number of type parameters
+* you can get around this restriction by placing the type parameter on the key rather than the container
 
 <!-- ## Chapter 6 (DI 21, 147-180) -->
 
