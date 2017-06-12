@@ -329,9 +329,11 @@ This document sums up the advices of Joshua Bloch's Book Effective Java.
   * replace arrays with lists
 
 ### Item 26: Favor generic types
-* use generics for your own implementations (e.g. your own Stack implementation) to prevent type casts in client code
+* use generics for your own type implementations (e.g. your own Stack implementation) to prevent type casts in client code
 
 ### Item 27: Favor generic methods
+* use generics for your own method declarations to prevent type casts in client code
+
 ### Item 28: Use bounded wildcards to increase API flexibility
 ### Item 29: Consider typesafe heterogeneous containers
 
