@@ -1,3 +1,4 @@
+
 Effective Java
 ==============
 This document sums up the advices of Joshua Bloch's Book Effective Java.
@@ -10,8 +11,8 @@ This document sums up the advices of Joshua Bloch's Book Effective Java.
 * static factory method returns instance of class
 * advantages
   * factory methods are named, constructors not
-  * construtors create new objects, factory methods can reuse objects
-  * factory methods can return subtypes, construtors not
+  * constructors create new objects, factory methods can reuse objects
+  * factory methods can return subtypes, constructors not
 * disadvantages
   * classes without public/protected constructor can not be subclassed
   * factory methods are not distinguishable from other methods
@@ -233,10 +234,73 @@ This document sums up the advices of Joshua Bloch's Book Effective Java.
 * only use implementation inheritance if there is a real is-a relationship
   * a stack is not a vector, but can be implemented using a vector
 * using inheritance you use the same API as the superclass
-* using composition you design your own API  
+* using composition you design your own API
+
+### Item 17 Design and document for inheritance or else prohibit it
+* designing a class for inheritance places substantial limitations on the class, but there are situations where it is cleary the right thing to do
+* a class must document its self-use of overridable (non-final public/protected) methods
+* each method that calls overridable methods should document the internal usage of these methods (special documentation)
+
+  ``This implementation ...``
+* this leads to the need of documenting implementation details which should be otherwise unspecified
+* design for inheritance provides hooks into the internal workings of a class in the form of protected methods (and fields)
+* the only way to test a class designed for inheritance is to write subclasses before you release it
+* you should expose as few protected members as possible, each one is a commitment to an implementation detail
+* too few protected members can make the class unusable for inheritance
+* constructors must not invoke overridable methods
+* by default classes are open for inheritance, but most of the time they should not be:
+  * make classes final to prevent inheritance
+  * use package-private/private constructors and use static factories to allow internal subclassing
+
+### Item 18 Prefer interfaces to abstract classes
+* existing classes can be easily retrofitted to implement a new interface
+* interfaces enable safe, powerful functionality enhancements
+* interfaces are ideal for defining mixins
+* interfaces allow the construction of nonhierarchical type frameworks
+* by combining abstract classes and interfaces you can provide a default implementation
+* once an interface is released and widely implemented, it is almost impossible to change
+* it is far more easier to evolve an abstract class
+
+### Item 19 Use interfaces only to define types
+* using interfaces solely to define constants is an anti pattern
+  * ojects can be refered by the interface type, which is not realy specifing any behaviour and should be avoided
+  * use utility classes (item 4) are enums (item 30) instead
+
+### Item 20 Prefer class hierarchies to tagged classes
+* do not use tagged classes (type field and if/else or switch statements to check of which type an object is)
+* tagged classes are verbose, error-prone and inefficient
+* a tagged class is just a pallid imitation of a class hierarchy
+
+### Item 21 Use function objects to represent strategies
+* see Comparator which is a function object for sorting elements
+* Comparator is an Interface which can be implemented
+
+### Item 22 Favor static member classes over non-static
+* a nested class is defined within another class
+* nested classes should only be used, if they only are used be the enclosing class
+* there are 4 different types of nested classes:
+  * static member classes
+    * class declared within another class and marked as static
+    * used as public helper class which is used in combination with the enclosing class
+    * Example: Calculator.Operation.PLUS (Operation is a static member class of Calculator)
+  * nonstatic member classes
+    * nonstatic member classes always exist in combination with an instance of the enclosing class
+    * used to implement Adapter (an instance of the outter class can be viewed as an instance of some unrelated class)
+  * anonymous classes
+    * class without a name
+    * not a member of the enclosing class
+    * declared an instantiated on the fly at the point of declaration
+    * should not be longer than 10 lines
+    * can be declared at any point where an expression can be placed
+  * local classes
+    * can be declared anywhere a local variable can be declared
+* if you declare a member class that does not require access to an enclosing instance, always put the static modifier in its declaration
+
 <!-- ## Chapter 5 (KW 20) -->
 <!-- ## Chapter 6 (KW 21) -->
+
 <!-- ## Chapter 7 (KW 22) -->
+
 
 ## Chapter 8: General Programming
 ### Item 45: Minimize Scope of local Variables
