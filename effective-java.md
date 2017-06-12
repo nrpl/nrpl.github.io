@@ -325,10 +325,12 @@ This document sums up the advices of Joshua Bloch's Book Effective Java.
 * arrays and generics use fundamentally different concepts and do not mix well
   * arrays are covariant and reified
   * generics are invariant and erased
-* varargs and generic types can lead to problems (compile-time erros and warnings)
-  * replace arrays with lists 
+* varargs and generic types can lead to problems (compile-time errors and warnings)
+  * replace arrays with lists
 
 ### Item 26: Favor generic types
+* use generics for your own implementations (e.g. your own Stack implementation) to prevent type casts in client code
+
 ### Item 27: Favor generic methods
 ### Item 28: Use bounded wildcards to increase API flexibility
 ### Item 29: Consider typesafe heterogeneous containers
