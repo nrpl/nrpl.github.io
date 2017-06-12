@@ -296,10 +296,20 @@ This document sums up the advices of Joshua Bloch's Book Effective Java.
     * can be declared anywhere a local variable can be declared
 * if you declare a member class that does not require access to an enclosing instance, always put the static modifier in its declaration
 
-<!-- ## Chapter 5 (KW 20) -->
-<!-- ## Chapter 6 (KW 21) -->
 
-<!-- ## Chapter 7 (KW 22) -->
+## Chapter 5: Generics
+* Generics since Java 1.5 (09/2004)
+* Compiler adds casts automatically at compile time
+
+### Item 23: Don't use raw types in new code
+### Item 24: Eliminate unchecked warnings
+### Item 25: Prefer lists to arrays
+### Item 26: Favor generic types
+### Item 27: Favor generic methods
+### Item 28: Use bounded wildcards to increase API flexibility
+### Item 29: Consider typesafe heterogeneous containers
+<!-- ## Chapter 6 (DI 21, 147-180) -->
+<!-- ## Chapter 7 (MI 22, 181-208) -->
 
 
 ## Chapter 8: General Programming
@@ -361,6 +371,6 @@ This document sums up the advices of Joshua Bloch's Book Effective Java.
 * methods that return a boolen should start with 'is', e.g. isValidSelection
 * constants: uppercase letters separated by underscore, e.g. MIN_VALUE
 
-<!-- ## Chapter 9 (KW 23) -->
-<!-- ## Chapter 10 (KW 24) -->
-<!-- ## Chapter 11 (KW 25) -->
+<!-- ## Chapter 9 (DO 23, 241-258) -->
+<!-- ## Chapter 10 (FR 24, 259-288) -->
+<!-- ## Chapter 11 (FR 25, 289-314) -->
