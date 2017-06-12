@@ -321,6 +321,13 @@ This document sums up the advices of Joshua Bloch's Book Effective Java.
 * every time you use an SupressWarnings annotation, add a comment describing why it is safe
 
 ### Item 25: Prefer lists to arrays
+* adding wrong types to arrays fails at runtime, adding wrong types to generic types fails at compile time
+* arrays and generics use fundamentally different concepts and do not mix well
+  * arrays are covariant and reified
+  * generics are invariant and erased
+* varargs and generic types can lead to problems (compile-time erros and warnings)
+  * replace arrays with lists 
+
 ### Item 26: Favor generic types
 ### Item 27: Favor generic methods
 ### Item 28: Use bounded wildcards to increase API flexibility
