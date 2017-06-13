@@ -359,6 +359,17 @@ This document sums up the advices of Joshua Bloch's Book Effective Java.
 * use enums every time you need a fixed set of constants or you know all the possible values at compile time
 * consider the enum-strategy-patterns if multiple enums share common behaviors
 
+### Item 31: Use instance fields instead of ordinals
+* never derive a value associated with an enum from its ordinal, use instance fields instead
+  ```
+  public enum Activities {
+    RUN("run.png"), BIKE("bike.png"), SWIM("swim.png");
+    private final String image;
+    public Activities(String image) {this.image = image;}
+    public String getImage() { return this.image; }
+  }
+  ```
+
 <!-- ## Chapter 7 (MI 22, 181-208) -->
 
 
