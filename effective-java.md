@@ -342,8 +342,22 @@ This document sums up the advices of Joshua Bloch's Book Effective Java.
 * the collections API is restricted to a fixed number of type parameters
 * you can get around this restriction by placing the type parameter on the key rather than the container
 
-<!-- ## Chapter 6 (DI 21, 147-180) -->
+## Chapter 6: Enums and Annotations
+* Enums and Annotation Types are supported since Java 1.5
 
+### Item 30: Use Enums instead of int constants
+* enums are intended to replace int constants
+* simple enums are just a list of named constants:
+  ```
+  public enum Activities { RUN, BIKE, SWIM }
+  ```
+* enums are classes that export one instance for each enumeration constant via a public static final field
+* enums in java are more powerful than in other languages, they can implement behavior (rich enums)
+* enums provide compile-time type-safety
+* enums have an automatically generated valueOf(String) method which transfers the constants name to an enum instance
+* if you provide a custom toString-method, consider implementing a fromString method
+* use enums every time you need a fixed set of constants or you know all the possible values at compile time
+* consider the enum-strategy-patterns if multiple enums share common behaviors
 
 <!-- ## Chapter 7 (MI 22, 181-208) -->
 
