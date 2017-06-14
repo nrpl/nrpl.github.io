@@ -351,6 +351,15 @@ This document sums up the advices of Joshua Bloch's Book Effective Java.
   ```
   public enum Activities { RUN, BIKE, SWIM }
   ```
+* enums can have instance fields:
+  ```
+  public enum Activities {
+    RUN("run.png"), BIKE("bike.png"), SWIM("swim.png");
+    private final String image;
+    public Activities(String image) {this.image = image;}
+    public String getImage() { return this.image; }
+  }
+  ```
 * enums are classes that export one instance for each enumeration constant via a public static final field
 * enums in java are more powerful than in other languages, they can implement behavior (rich enums)
 * enums provide compile-time type-safety
@@ -361,16 +370,37 @@ This document sums up the advices of Joshua Bloch's Book Effective Java.
 
 ### Item 31: Use instance fields instead of ordinals
 * never derive a value associated with an enum from its ordinal, use instance fields instead
-  ```
-  public enum Activities {
-    RUN("run.png"), BIKE("bike.png"), SWIM("swim.png");
-    private final String image;
-    public Activities(String image) {this.image = image;}
-    public String getImage() { return this.image; }
-  }
-  ```
 
-<!-- ## Chapter 7 (MI 22, 181-208) -->
+### Item 32: Use EnumSet instead of bit fields
+* use EnumSets for sets
+
+### Item 33: Use EnumMap instead of ordinal indexing
+* it is rarely appropriate to use ordinals to index arrays, use EnumMap instead
+
+### Item 34: Emulate extensible enums with interfaces
+* whie you cannot write an extensible enum type, you can emulate it by writing an interface to go with a basic enum type that implements the interface
+
+### Item 35: Prefer annotations to naming patterns
+* naming patterns are no longer needed, better use marker annotations
+* use the predefined annotation types provided by the Java platform
+
+### Item 36: Consistently use the Override annotation
+* use the Override annotation on every method declaration that you believe to override a superclass declaration
+* the compiler is able to detect overloading instead of overriding errors
+
+### Item 37: Use marker interfaces to define types
+* marker interfaces define a type that is implemented by instances of the marked class
+* in contrast marker annotations do not
+
+
+## Chapter 7: Methods
+### Item 38: Check parameters for validity
+### Item 39: Make defensive copies when needed
+### Item 40: Design method signatures carefully
+### Item 41: Use overloading judiciously
+### Item 42: Use varargs judiciously
+### Item 43: Return empty arrays or collections, not null
+### Item 44: Write doc comments for all exposed API elements
 
 
 ## Chapter 8: General Programming
