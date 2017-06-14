@@ -437,7 +437,20 @@ but you should add a comment which outlines the client's responsibility not to m
 use varargs only when a call really operates on a variable-length sequence of values
 
 ### Item 43: Return empty arrays or collections, not null
+* there is no reason ever to return null from an array- or collection-valued method
+
 ### Item 44: Write doc comments for all exposed API elements
+* document your API properly using doc comments
+* document exported elements like classes, interfaces, method and field declarations
+* the doc comment for a method should describe succinctly the contract between the method and its client
+* doc comments should describe what the methods does, not how it does its job
+* comment preconditions, postconditions and side effects
+* each unchecked exception described by a @throws comment corresponds to a precondition violation
+* no two members or constructors in a class or interface should have the same summary description
+* when documenting a generic type or method, be sure to document all type parameters
+* when documenting an enum type, be sure to document the constants
+* when documenting an annotation type, be sure to document any members
+* adopt a consistent style that adheres to standard conventions
 
 
 ## Chapter 8: General Programming
