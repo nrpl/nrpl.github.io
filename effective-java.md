@@ -395,10 +395,47 @@ This document sums up the advices of Joshua Bloch's Book Effective Java.
 
 ## Chapter 7: Methods
 ### Item 38: Check parameters for validity
+* check parameters passed to your method for validity
+* fail quickly and cleanly using exceptions
+* for public methods document which exceptions can be thrown using @throws comment
+* typically the following exceptions are used
+  * IllegalArgumentException
+  * IndexOutOfBoundsException
+  * NullPointerException
+* private methods should check their parameters using assertions
+
 ### Item 39: Make defensive copies when needed
+* you must program defensively, with the assumption that clients of our class
+will do their best to destroy its invariants
+* it is essential to make a defensive copy of each mutable constructor parameter
+* defensive copies are made before the validity check and the check is performed on the defensive copy
+* do not use the clone method to make a defensive copy of a parameter whose type is subclassable by untrusted parties
+* return defensive copies of mutable internal fields
+* if you trust your clients you do not have to make defensive copiesen
+but you should add a comment which outlines the client's responsibility not to modify the affected components
+
 ### Item 40: Design method signatures carefully
+* choose method names carefully
+  * understandable
+  * consistent
+* provide fully functional methods, don't go overvoard providing convenience methods
+* avoid long parameter lists, use 4 or fewer
+* for parameter types favor interfaces over classes
+* prefer two-element enum types to boolean parameters
+
 ### Item 41: Use overloading judiciously
+* overloading = compile time
+* overriding = runtime
+* avoid confusing uses of overloading
+* a safe, conservative policy is never to export two overloadings with the same number of parameters
+* overloading is okay, if the parameters are radically different
+
 ### Item 42: Use varargs judiciously
+* varargs methods = variable arity methods, since Java 1.5
+* 0 or more arguments
+* don't retrofit every method that has a final array parameter,
+use varargs only when a call really operates on a variable-length sequence of values
+
 ### Item 43: Return empty arrays or collections, not null
 ### Item 44: Write doc comments for all exposed API elements
 
