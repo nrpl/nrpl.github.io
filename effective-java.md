@@ -555,6 +555,13 @@ can be explained in terms of the higher level abstraction
 * exception translation
 * should be preferred to mindless propagation, but it should not be overused
 
+### Item 62: Document all exceptions thrown by each method
+* always declare checked exceptions in detail using the @throws tag
+* always declare unchecked exceptions using the @throws tag
+but do not add them to the method declaration
+* if an exception is thrown by many methods for the same reason,
+it is acceptable to document it in the class documentation (e.g. NPE)
+
 
 <!-- ## Chapter 10 (FR 24, 259-288) -->
 <!-- ## Chapter 11 (FR 25, 289-314) -->
