@@ -570,6 +570,11 @@ and fields that contributed to the exception
 * a failed method invocation should leave the object in the state that it was in prior to the invocation
   * e.g. copy state to make a backup before working on it
 
+### Item 65: Don't ignore exceptions
+* an empty catch block defeats the purpose of exceptions and is very bad practice
+* at the very least the catch block should contain a comment explaining why it is
+appropriate to ignore the exception
+
 
 <!-- ## Chapter 10 (FR 24, 259-288) -->
 <!-- ## Chapter 11 (FR 25, 289-314) -->
