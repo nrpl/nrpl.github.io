@@ -529,6 +529,26 @@ use varargs only when a call really operates on a variable-length sequence of va
     * by convention should only be used by the JVM
     * should not be subclassed
 
+### Item 59: Avoid unnecessary use of checked exceptions
+* checked exceptions force the programmer to deal with the exceptional conditions
+* if a method throws a checked exception, the calling code must handle it
+  * propagate it outwards
+  * handle it in a try catch block
+* if the programmer can not do anything to recover from the exceptional condition,
+you should not use checked exceptions
 
+### Item 60: Favor the use of standard exceptions
+* strive for a high degree of code reuse
+* use established conventions
+* programmers are familiar with the standard exceptions provided by the Java platform
+* most commonly used exceptions
+  * IllegalArgumentException: caller passes an inappropriate value
+  * IllegalStateException: use if object before it has been initialized
+  * NullPointerException: caller passes null, but null is not allowed
+  * UnsupportedOperationException: Object does not support an attempted operation
+  * ConcurrentModificationException: Object not designed for use by multiple threads,
+  detects concurrent modifications
+
+  
 <!-- ## Chapter 10 (FR 24, 259-288) -->
 <!-- ## Chapter 11 (FR 25, 289-314) -->
