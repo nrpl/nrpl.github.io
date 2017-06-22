@@ -512,6 +512,6 @@ use varargs only when a call really operates on a variable-length sequence of va
 * methods that return a boolen should start with 'is', e.g. isValidSelection
 * constants: uppercase letters separated by underscore, e.g. MIN_VALUE
 
-<!-- ## Chapter 9 (DO 23, 241-258) -->
+## Chapter 9 Exceptions
 <!-- ## Chapter 10 (FR 24, 259-288) -->
 <!-- ## Chapter 11 (FR 25, 289-314) -->
