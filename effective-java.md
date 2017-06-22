@@ -576,5 +576,14 @@ and fields that contributed to the exception
 appropriate to ignore the exception
 
 
-<!-- ## Chapter 10 (FR 24, 259-288) -->
+## Chapter 10: Concurrency
+### Item 66: Synchronize access to shared mutable data
+### Item 67: Avoid excessive synchronization
+### Item 68: Prefer executors and tasks to threads
+### Item 69: Prefer concurrency utilities to wait and notify
+### Item 70: Document thread safety
+### Item 71: Use lazy initialization judiciously
+### Item 72: Don't depend on thread scheduler
+### Item 73: Avoid thread groups
+
 <!-- ## Chapter 11 (FR 25, 289-314) -->
