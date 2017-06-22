@@ -2,6 +2,7 @@
 Effective Java
 ==============
 This document sums up the advices of Joshua Bloch's Book Effective Java.
+
 ## Chapter 1: Introduction
 
 
