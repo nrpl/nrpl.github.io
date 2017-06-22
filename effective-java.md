@@ -562,6 +562,14 @@ but do not add them to the method declaration
 * if an exception is thrown by many methods for the same reason,
 it is acceptable to document it in the class documentation (e.g. NPE)
 
+### Item 63: Include failure-capture information in detail messages
+* the detail information of an exception should contain the values of all parameters
+and fields that contributed to the exception
+
+### Item 64: Strive for atomicity
+* a failed method invocation should leave the object in the state that it was in prior to the invocation
+  * e.g. copy state to make a backup before working on it
+
 
 <!-- ## Chapter 10 (FR 24, 259-288) -->
 <!-- ## Chapter 11 (FR 25, 289-314) -->
