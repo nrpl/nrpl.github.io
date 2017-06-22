@@ -549,6 +549,12 @@ you should not use checked exceptions
   * ConcurrentModificationException: Object not designed for use by multiple threads,
   detects concurrent modifications
 
-  
+### Item 61: Throw exceptions appropriate to the abstraction
+* higher layers should catch lower level exceptions and transfer them to exceptions that
+can be explained in terms of the higher level abstraction
+* exception translation
+* should be preferred to mindless propagation, but it should not be overused
+
+
 <!-- ## Chapter 10 (FR 24, 259-288) -->
 <!-- ## Chapter 11 (FR 25, 289-314) -->
