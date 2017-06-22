@@ -509,9 +509,26 @@ use varargs only when a call really operates on a variable-length sequence of va
 * package names should be domain names in reverse order
 * class, interface and enum: noun or noun phrase, first letter of each word capitalized, e.g. UserRepository
 * method and field names: verb or verb phrase, first letter of first word in lowercase, first letter of each subsequent word uppercase, e.g. calculateDeviation
-* methods that return a boolen should start with 'is', e.g. isValidSelection
+* methods that return a boolean should start with 'is', e.g. isValidSelection
 * constants: uppercase letters separated by underscore, e.g. MIN_VALUE
 
-## Chapter 9 Exceptions
+## Chapter 9: Exceptions
+### Item 57: Use exceptions only for exceptional conditions
+* exceptions should never be used for ordinary control flow
+* an api should never force its clients to use exceptions for ordinary control flow
+
+### Item 58: Use checked exceptions for recoverable conditions and runtime exceptions for programming errors
+* throwables
+  * checked exceptions
+    * must be handled
+    * should be used for conditions from which the caller can reasonably be expected to recover
+  * runtime exceptions
+    * must not be handled
+    * should be used to indicate programming errors
+  * errors
+    * by convention should only be used by the JVM
+    * should not be subclassed
+
+
 <!-- ## Chapter 10 (FR 24, 259-288) -->
 <!-- ## Chapter 11 (FR 25, 289-314) -->
