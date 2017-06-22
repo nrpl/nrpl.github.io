@@ -586,4 +586,52 @@ appropriate to ignore the exception
 ### Item 72: Don't depend on thread scheduler
 ### Item 73: Avoid thread groups
 
-<!-- ## Chapter 11 (FR 25, 289-314) -->
+
+## Chapter 11: Serialization
+
+### Item 74: Implement Serializable judiciously
+* implementing serializable is as easy as adding implements Serializable
+* but implementing serializable adds the serialized form to the exported API of the object
+* once it is part of the API it has to be supported forever
+* implementing serializable increases the likelihood of bugs and security holes
+* implementing serializable increases the testing burden because backwards compatibility needs to be checked
+* classes designed for inheritance/inheritance should rarely implement/extend serializable
+* consider providing a parameterless constructor on non serializable classes designed for inheritance
+to permit subclasses to implement Serializable
+
+### Item 75: Consider using a custom serialized form
+* do not accept the default serialized form without first considering whether it is appropriate
+* the default serialized form is likely to be appropriate if an object's physical representation is
+identical to its logical content
+* even if you decide that the default serialized form is appropriate, you often must provide
+a readObject method to ensure invariants and security
+* using the default serialized form when an objects physical differs from the logical representation has four disadvantages:
+  * it permanently ties the exported API to the current internal representation
+  * it can consume excessive space
+  * it can consume excessive time
+  * it can cause stack overflows
+* transient fields are omitted from the serialized form
+* before making a field nontransient convince yourself that its value is part of the logical state of the object
+* if all instance fields are transient it is permissible to dispense with invoking
+defaultWriteObject and defaultReadObject, but it is not recommended
+* declare an explicit serial version UID in every serializable class you write
+
+### Item 76: Write readObject methods defensively
+* the readObject method is used when an object is deserialized
+* when an object is deserialized, it is critical to defensively copy any field containing an
+object reference that a client must not posses
+* do not use the writeUnshared / readUnshared methods
+
+### Item 77: For instance control, prefer enum types to readResolve
+* the readResolve feature allows you to substitute another instance for the one created by readObject
+* if you depend on readResolve for instance control, all instance fields with object reference types
+must be declared transient
+* the accessibility of readResolve is significant
+
+### Item 78: Consider serialization proxies instead of serialized isntances
+* serialization proxy is a nested class with represents the logical representation of the class
+  * should have a single constructor whose parameter type is the enclosing class
+* both serialization proxy and enclosing class need to implement Serializable
+* enclosing class must provide a writeReplace method which returns an Instance of the proxy
+* the enclosing class should provide a readObject method which throws InvalidObjectException
+to guarantee that the writeReplace method must be used instead of the readObject method
