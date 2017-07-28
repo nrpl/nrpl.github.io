@@ -20,16 +20,13 @@ bundled together with the application, into a container.
 
 The traditional way is to put an application into an existing environment and to ensure, 
 that the environment is configured appropriate to the application needs.
-The docker way is to provide an isolated container which already contains the environment and the application.
+The docker way is to provide an isolated container which already contains the configured environment and the application.
 The container can be executed on any machine that is running the Docker Engine 
 and it is guaranteed that the environment in which the application is executed is identical on each machine.
 
 Docker containers can be used as deployment artifact for shipping applications.
-The container contains the applications, e.g. a jar file, and additionally all of the necessary configuration and 
+The container packages the  application, e.g. a jar file, and additionally all of the necessary configuration and 
 dependencies on operating system level.
-
-Server / Cloud Applications can be distributed using docker containers.
-All dependencies, e.g. installed Java version or specific libraries, can be prepared within the container.
 The prepared container can then be released in a central public/private repository.
 
 Cloud computing providers like Amazon Web Services or Microsoft Azure provide infrastructure for running docker containers.
