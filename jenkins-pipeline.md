@@ -12,4 +12,7 @@ The build jobs are defined using Groovy and get executed after Jenkins has check
 
 The build job configuration is part of the code and managed using a version control system.
 
+Pipeline Syntax and a Script Generator is available at the endpoint pipeline-syntax of your Jenkins:
+- localhost:8080/pipeline syntax
+
 For more information visit [Getting Started](https://jenkins.io/doc/book/pipeline/getting-started/) on [jenkins.io](https://jenkins.io).
