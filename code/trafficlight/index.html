@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+  </head>
+  <body style="padding:25px">
+    <div style="margin:50px;">
+    <span id="red"
+        style="display: inline-block; width:50px; height:50px; background-color:red" 
+        class="rounded-circle">
+        &nbsp;
+    </span><br/> 
+    <span id="orange"
+        style="display: inline-block; width:50px; height:50px; background-color:orange" 
+        class="rounded-circle">
+        &nbsp;
+    </span> <br/>
+    <span id="green"
+        style="display: inline-block; width:50px; height:50px; background-color:green" 
+        class="rounded-circle">
+        &nbsp;
+    </span> 
+    </div>
+
+    <button onclick="red()">Red</button>
+    <button onclick="redOrange()">Red Orange</button>
+    <button onclick="green()">Green</button>
+    <button onclick="orange()">Orange</button>
+    <br/>
+    <button onclick="testPattern()">Test</button>
+    <br/>
+    <button onclick="off()">Off</button>
+
+    <script>
+        var defaultStyle = "display: inline-block; width:50px; height:50px;";
+        var redElem = document.getElementById("red");
+        var orangeElem = document.getElementById("orange");
+        var greenElem = document.getElementById("green");
+
+        var colorRed = "red";
+        var colorOrange = "orange";
+        var colorGreen = "green";
+        var colorOff = "black";
+        
+        function off() {
+            redElem.setAttribute("style", defaultStyle +"background-color:"+colorOff);
+            orangeElem.setAttribute("style", defaultStyle +"background-color:"+colorOff);
+            greenElem.setAttribute("style", defaultStyle +"background-color:"+colorOff);
+        }
+
+        function red() {
+            redElem.setAttribute("style", defaultStyle +"background-color:"+colorRed);
+            orangeElem.setAttribute("style", defaultStyle +"background-color:"+colorOff);
+            greenElem.setAttribute("style", defaultStyle +"background-color:"+colorOff);
+        }
+
+        function redOrange() {
+            redElem.setAttribute("style", defaultStyle +"background-color:"+colorRed);
+            orangeElem.setAttribute("style", defaultStyle +"background-color:"+colorOrange);
+            greenElem.setAttribute("style", defaultStyle +"background-color:"+colorOff);
+        }
+
+        function orange() {
+            redElem.setAttribute("style", defaultStyle +"background-color:"+colorOff);
+            orangeElem.setAttribute("style", defaultStyle +"background-color:"+colorOrange);
+            greenElem.setAttribute("style", defaultStyle +"background-color:"+colorOff);
+        }
+        
+        function green() {
+            redElem.setAttribute("style", defaultStyle +"background-color:"+colorOff);
+            orangeElem.setAttribute("style", defaultStyle +"background-color:"+colorOff);
+            greenElem.setAttribute("style", defaultStyle +"background-color:"+colorGreen);
+        }
+
+        function test() {
+            redElem.setAttribute("style", defaultStyle +"background-color:"+colorRed);
+            orangeElem.setAttribute("style", defaultStyle +"background-color:"+colorOrange);
+            greenElem.setAttribute("style", defaultStyle +"background-color:"+colorGreen);
+        }
+
+        function sleep(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms));
+        }
+        
+        async function wait(ms, doSomething) {
+            sleep(ms).then(() => {
+            console.log("slept for " +ms);
+            doSomething
+            console.log("did something");
+            });
+        }
+
+        function testPattern() {
+            var ms = 1500;
+            sleep(500).then(() => {
+                off(); 
+                sleep(500).then(() => {
+                    test(); 
+                    sleep(ms).then(() => {
+                        green(); 
+                        sleep(2*ms).then(() => {
+                            orange(); 
+                            sleep((ms/3)*2).then(() => {
+                                red(); 
+                                sleep(2*ms).then(() => {
+                                    redOrange(); 
+                                    sleep(ms/2).then(() => {
+                                        green(); 
+                                        sleep(2*ms).then(() => {
+                                            off(); 
+                                        });
+                                    });
+                                });
+                            });
+                        });
+                    });
+                });
+            });
+        }
+    </script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+  </body>
+</html>

@@ -2,7 +2,6 @@
 maxIterations=10
 url="google.de"
 secondsToWait=1
-
 iteration=0;
 while [ $iteration -lt $maxIterations ]
 do
@@ -21,6 +20,6 @@ if [ $iteration -eq $maxIterations ]
 then
     timeout=$(expr $maxIterations \* $secondsToWait)
     echo "$url did not respond with Status 200 within the configured timeout of $timeout seconds."
-    exit -1
+    exit 1
 fi
 exit 0
