@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html>
+	<head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+        <style>
+            body {
+                padding: 50px;
+            }
+
+            h1 {
+                text-align: center;
+                padding-bottom: 20px;
+            }
+        </style>
+		<title>Dashboard</title>
+	</head>
+	<body>
+    <h1>Webservice Health Dashboard</h1>
+    <div class="container, row">
+        <div class="container, col-2">
+            <span id="red"
+                style="display: inline-block; width:150px; height:150px; background-color:red" 
+                class="rounded-circle">
+                &nbsp;
+            </span>
+            <br/> 
+            <span id="orange"
+                style="display: inline-block; width:150px; height:150px; background-color:orange" 
+                class="rounded-circle">
+                &nbsp;
+            </span> 
+            <br/>
+            <span id="green"
+                style="display: inline-block; width:150px; height:150px; background-color:limegreen" 
+                class="rounded-circle">
+                &nbsp;
+            </span> 
+        </div>
+    
+        <div class="col-10">
+            <div class="container">
+                <input type="text" id="name-input" placeholder="name"/>
+                <input type="text" id="url-input" placeholder="url"/>
+   		        <input type="text" id="expected-status-input" placeholder="expected status"/>
+   		        <button id="add-check-btn">Add</button>
+            </div>
+            <div class="container">
+		        <span id="count-down-display">&nbsp;</span><br>
+                <button id="start-count-down">Start Timer</button>
+                <button id="stop-count-down">Stop Timer</button>
+		        <button id="check-now-btn">Check all now</button>
+            </div>
+            <br>
+            <div class=container>
+    	        <div id="system-list" class="container"></div>
+            </div>
+        </div>
+    </div>
+
+	<script>
+    var defaultStyle = "display: inline-block; width:150px; height:150px;";
+        var redElem = document.getElementById("red");
+        var orangeElem = document.getElementById("orange");
+        var greenElem = document.getElementById("green");
+
+        var colorRed = "red";
+        var colorOrange = "orange";
+        var colorGreen = "limegreen";
+        var colorOff = "black";
+        
+        function off() {
+            redElem.setAttribute("style", defaultStyle +"background-color:"+colorOff);
+            orangeElem.setAttribute("style", defaultStyle +"background-color:"+colorOff);
+            greenElem.setAttribute("style", defaultStyle +"background-color:"+colorOff);
+        }
+
+        function red() {
+            redElem.setAttribute("style", defaultStyle +"background-color:"+colorRed);
+            orangeElem.setAttribute("style", defaultStyle +"background-color:"+colorOff);
+            greenElem.setAttribute("style", defaultStyle +"background-color:"+colorOff);
+        }
+
+        function redOrange() {
+            redElem.setAttribute("style", defaultStyle +"background-color:"+colorRed);
+            orangeElem.setAttribute("style", defaultStyle +"background-color:"+colorOrange);
+            greenElem.setAttribute("style", defaultStyle +"background-color:"+colorOff);
+        }
+
+        function orange() {
+            redElem.setAttribute("style", defaultStyle +"background-color:"+colorOff);
+            orangeElem.setAttribute("style", defaultStyle +"background-color:"+colorOrange);
+            greenElem.setAttribute("style", defaultStyle +"background-color:"+colorOff);
+        }
+        
+        function green() {
+            redElem.setAttribute("style", defaultStyle +"background-color:"+colorOff);
+            orangeElem.setAttribute("style", defaultStyle +"background-color:"+colorOff);
+            greenElem.setAttribute("style", defaultStyle +"background-color:"+colorGreen);
+        }
+
+        function test() {
+            redElem.setAttribute("style", defaultStyle +"background-color:"+colorRed);
+            orangeElem.setAttribute("style", defaultStyle +"background-color:"+colorOrange);
+            greenElem.setAttribute("style", defaultStyle +"background-color:"+colorGreen);
+        }
+
+        function sleep(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms));
+        }
+        
+        async function wait(ms, doSomething) {
+            sleep(ms).then(() => {
+            console.log("slept for " +ms);
+            doSomething
+            console.log("did something");
+            });
+        }
+
+        function testPattern() {
+            var ms = 1500;
+            sleep(500).then(() => {
+                off(); 
+                sleep(500).then(() => {
+                    test(); 
+                    sleep(ms).then(() => {
+                        green(); 
+                        sleep(2*ms).then(() => {
+                            orange(); 
+                            sleep((ms/3)*2).then(() => {
+                                red(); 
+                                sleep(2*ms).then(() => {
+                                    redOrange(); 
+                                    sleep(ms/2).then(() => {
+                                        green(); 
+                                        sleep(2*ms).then(() => {
+                                            off(); 
+                                        });
+                                    });
+                                });
+                            });
+                        });
+                    });
+                });
+            });
+        }
+
+	document.getElementById("check-now-btn").addEventListener("click", checkNowBtnClickHandler);
+	document.getElementById("add-check-btn").addEventListener("click", addSystemBtnClickHandler);
+    document.getElementById("stop-count-down").addEventListener("click", stopCountDownClickHandler);
+    document.getElementById("start-count-down").addEventListener("click", startCountDownClickHandler);
+
+    var countDownInterval;
+	var idCounter = 0;
+	var services = new Array();
+
+	function addSystemBtnClickHandler() {
+		var name = document.getElementById("name-input").value;
+		var url = document.getElementById("url-input").value;
+		var expectedStatus = document.getElementById("expected-status-input").value;
+
+		
+		var system = {
+			name: name,
+			url: url,
+			expectedStatus: expectedStatus,
+            state: 0
+		};
+
+		services.push(system);
+		appendToView(system);
+	}
+
+    function startCountDownClickHandler() {
+       startCountDown(); 
+    }
+
+    function stopCountDownClickHandler() {
+        clearInterval(countDownInterval);
+        document.getElementById("count-down-display").innerHTML = "&nbsp;";
+    }
+
+	function appendToView(system) {
+		var nameNode = document.createElement("div");
+        nameNode.setAttribute("class", "col-2");
+		nameNode.appendChild(document.createTextNode(system.name));
+		
+		var urlNode = document.createElement("div");
+		urlNode.appendChild(document.createTextNode("(" +system.url +")"));
+		urlNode.setAttribute("id", "url-"+idCounter);
+        urlNode.setAttribute("class", "col-4");
+
+		var checkBtnNode = document.createElement("button");
+		checkBtnNode.setAttribute("id", "check-btn-" +idCounter);
+		checkBtnNode.appendChild(document.createTextNode("Check " +system.expectedStatus));
+		checkBtnNode.setAttribute(
+            "onclick", 
+            "getStatusOf('" +system.url +"', " +system.expectedStatus +", 'status-indicator-" +idCounter +"', 'info-msg-" +idCounter +"', " +idCounter +")"
+        );
+        var actionCol = document.createElement("div");
+        actionCol.setAttribute("class", "col-2");
+        actionCol.appendChild(checkBtnNode);
+
+		var statusIndicatorNode = document.createElement("div");
+		statusIndicatorNode.setAttribute("style", "display: inline-block; height: 20px; width: 20px");
+		statusIndicatorNode.setAttribute("id", "status-indicator-" +idCounter);
+        statusIndicatorNode.setAttribute("class", "rounded-circle");
+        var infoMsg = document.createElement("span");
+        infoMsg.setAttribute("id", "info-msg-" +idCounter);
+
+        var statusCol = document.createElement("div");
+        statusCol.setAttribute("class", "col-2");
+		statusCol.appendChild(statusIndicatorNode);
+        statusCol.appendChild(infoMsg);
+
+		var systemElem = document.createElement("div");
+		systemElem.setAttribute("id", "system-"+idCounter);
+        systemElem.setAttribute("class", "row");
+        systemElem.appendChild(statusCol);
+		systemElem.appendChild(nameNode);
+		systemElem.appendChild(urlNode);
+		systemElem.appendChild(actionCol);
+
+		var systemListElem = document.getElementById("system-list");
+		systemListElem.appendChild(systemElem);
+
+		++idCounter;
+	}
+
+	function processStatus(actualStatus, expectedStatus, statusIndicatorElem, infoMsgElem, system) {
+		if(actualStatus == expectedStatus) {
+			statusIndicatorElem.style.backgroundColor='limegreen';
+			infoMsgElem.textContent = '';
+            system.state = 1;
+		} else {
+			infoMsgElem.textContent = "expected: " +expectedStatus +" actual: " +actualStatus;
+			statusIndicatorElem.style.backgroundColor='red';
+            system.state = -1;
+		}
+        updateTrafficLight();
+	}
+
+	function getStatusOf(url, expectedStatus, statusIndicatorId, infoMsgId, systemIdx) {
+        var system = services[systemIdx];
+		var statusIndicatorElem = document.getElementById(statusIndicatorId);
+        var infoMsgElem = document.getElementById(infoMsgId);
+		var xhr = new XMLHttpRequest();
+	
+        orange();
+		xhr.onprogress = function() {
+			statusIndicatorElem.style.backgroundColor='grey';
+		}
+
+		xhr.onreadystatechange = function() {
+			if(this.readyState == 4) {
+				processStatus(this.status, expectedStatus, statusIndicatorElem, infoMsgElem, system);
+			}
+		}
+
+		xhr.open('GET', url, true);
+		xhr.send();
+	}
+
+    function checkAll() {
+       for(var i=0; i<services.length; ++i) {
+            document.getElementById("check-btn-"+i).click();
+        }
+    }
+
+	function checkNowBtnClickHandler() {
+        for(var i=0; i<services.length; ++i) {
+           checkAll(); 
+        }
+    }
+    
+    function updateTrafficLight() {
+        var overallState = 0;
+        for(var i=0; i<services.length; ++i) {
+            var curState = services[i].state;
+            if(overallState == 1 || overallState == 0) {
+                if(curState == -1) {
+                    overallState = -1;
+                }
+                if(curState == 0 && overallState == 1) {
+                    overallState = 0;
+                }
+                if(curState == 1 && overallState == 0) {
+                    overallState = 1;
+                }
+            } 
+        }
+        if(overallState == -1) {
+            red();
+        } else if(overallState == 0) {
+            orange();
+        } else if(overallState == 1) {
+            green();
+        }
+    }
+
+    function startCountDown() {
+        var countDownDate = new Date(new Date().getTime() + 60000*1);
+        countDownInterval = setInterval(function() {
+            var now = new Date().getTime();
+            var distance = countDownDate - now;
+            var seconds = Math.floor((distance % (1000*60)) / 1000);
+            document.getElementById("count-down-display").innerHTML = "checking in " +seconds +" seconds";
+
+            if(distance < 0) {
+                orange();
+                checkAll();
+                updateTrafficLight();
+                countDownDate = new Date(new Date().getTime() + 60000*1);
+            }    
+        }, 1000);
+    }
+
+	</script>
+	</body>
+</html>
