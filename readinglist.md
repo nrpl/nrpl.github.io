@@ -3,6 +3,7 @@ Readinglist
 
 Currently Reading
 -----------------
+- Moderne Softwarearchitektur, Johannes Siedersleben, dpunkt.verlag (since September 2017)
 - [Effective Java, Joshua Bloch, Addison Wesley (since April 2017)](effective-java)
 - Apprenticeship Patterns, David H. Hoover & Adewale Oshineye, O'Reilly (since August 2016)
 - Code Complete, Second Edition, Steve McConnell, Microsoft Press (since September 2016)
