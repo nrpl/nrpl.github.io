@@ -13,7 +13,7 @@ which is added to the project code and is stored in the Repository.
 
 The build jobs are defined using Groovy and get executed after Jenkins has checked out the code from the version control system.
 
-The big advantage is, that The build job configuration is part of the code and managed using a version control system.
+The big advantage is, that the build job configuration is part of the code and managed using a version control system.
 
 In order to use Jenkins Pipeline, you have to configure a minimal Jenkins Job which pulls the Jenkinsfile from SCM. 
 To do so, follow the following steps:
@@ -29,6 +29,6 @@ To do so, follow the following steps:
   ```
 
 Pipeline Syntax and a Script Generator is available at the endpoint pipeline-syntax of your Jenkins:
-- localhost:8080/pipeline syntax
+- localhost:8080/pipeline-syntax
 
 For more information visit [Getting Started](https://jenkins.io/doc/book/pipeline/getting-started/) on [jenkins.io](https://jenkins.io).
