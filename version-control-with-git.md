@@ -181,3 +181,4 @@ Additional information
 * [Git Reference](http://gitref.org/)
 * [Git Project Website](https://git-scm.com/)
 * [Git Flow Branching Model](http://nvie.com/posts/a-successful-git-branching-model/)
+* [Altassian Comparing Workflows](https://www.atlassian.com/git/tutorials/comparing-workflows)
