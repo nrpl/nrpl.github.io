@@ -11,6 +11,8 @@ Currently Reading
 
 Queued
 ------
+- Cloud Native Java, Designing resilient systems with spring boot, spring cloud and cloud foundry
+- Using Docker, Developing and Deploying Software with Containers
 - Release It! Michael T. Nygard
 - Refactoring
 - Domain-Driven Design
