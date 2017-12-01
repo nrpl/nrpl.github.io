@@ -9,7 +9,7 @@ with JDK logging which is part of JDK since Java 1.4.
 
 ## Start with hello world
 Create a class containing a main method which prints hello world to the console:
-```Java
+```java
 public class HelloWorld {
     public static void main(String... args) {
         System.out.println("hello world");
@@ -20,7 +20,7 @@ public class HelloWorld {
 ## Create a logger
 A logger is required to send log messages.
 Use the provided factory method to create one:
-```Java
+```java
 import java.util.logging.Logger;
 
 public class HelloWorld {
@@ -37,7 +37,7 @@ but the fully qualified name is used for external configuration.
 
 ## Replace System.out.println by log.log()
 Now you can use the info method to send a log message:
-```Java
+```java
 import java.util.logging.Logger;
 import java.util.logging.Level;
 
@@ -73,13 +73,13 @@ The following levels are available:
 - FINEST (lowest value)
 
 You can use the log method to specify the level:
-```Java
+```java
 log.log(Level.INFO, "this is a info log message");
 log.log(Level.SEVERE, "this is a severe log message");
 ```
 
 Or you can use convenient methods which correspond to a level:
-```Java
+```java
 import java.util.logging.Logger;
 import java.util.logging.Level;
 
@@ -109,7 +109,7 @@ INFO or higher or accepted by the logger.
 Messages with a lower level are ignored.
 
 You can set the log level of the logger programatically:
-```Java
+```java
 import java.util.logging.Logger;
 import java.util.logging.Level;
 
@@ -134,7 +134,7 @@ SEVERE: severe
 ```
 
 Now we would like to log everything:
-```Java
+```java
 ...
 log.setLevel(Level.ALL);
 ...
@@ -217,7 +217,7 @@ java.util.logging.FileHandler.level=INFO
 java.util.logging.FileHandler.pattern=demo.log
 java.util.logging.FileHandler.formatter=java.util.logging.SimpleFormatter
 ```
-As you can see, we configure a seconds appender and set the levels within the properties file.
+As you can see, we configure a second appender and set the levels within the properties file.
 Remove the programatic configuration in the java class:
 ```java
 import java.util.logging.Logger;

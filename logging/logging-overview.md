@@ -43,7 +43,7 @@ See [think again](https://articles.qos.ch/thinkAgain.html) for more information.
 
 The modern alternative to JCL is [SLF4J](https://www.slf4j.org).
 In contrast to JCL it uses a static discovery process to determine a logging framework.
-Please refer to [Simplifying distincation betweeen slf4j](http://jayunit100.blogspot.de/2013/10/simplifying-distinction-between-sl4j.html)
+Please refer to [Simplifying distinction betweeen slf4j](http://jayunit100.blogspot.de/2013/10/simplifying-distinction-between-sl4j.html)
 for an brief description of the differences.
 SLF4J can be used with various logging frameworks.
 JDK logging, log4j and logback are supported.
