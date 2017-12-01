@@ -41,7 +41,7 @@ Anschließend wird die Testlogik mit Hilfe von JUnit umgesetzt.
 
 Als Grundlage dient [TDD Kata 1](http://osherove.com/tdd-kata-1/) von Roy Osherove.
 Ausgangspunkt ist die Klasse StringCalculator, deren Methode add einen String mit kommaseparierten Zahlen entgegennimmt und die Summe der Zahlen zurückgibt:
-
+```java
 	public class StringCalculator {
 		public int add(String numbers) {
 			if(numbers.isEmpty()) {
@@ -55,9 +55,9 @@ Ausgangspunkt ist die Klasse StringCalculator, deren Methode add einen String mi
 			return sum;
 		}
 	}
-
+```
 Um diese Klasse manuell zu Testen, kann man folgendermaßen vorgehen:
-
+```java
 	public class Testbed {
 		public static void main(String... args) {
 			StringCalculator stringCalculator = new StringCalculator();
@@ -66,20 +66,22 @@ Um diese Klasse manuell zu Testen, kann man folgendermaßen vorgehen:
 			System.out.println("Summe von [" +numbers +"] ist " +sum);
 		}
 	}
-
+```
 Die Klasse Testbed verwendet die zu testende Klasse StringCalculator und ruft dessen add Methode auf.
 Das Ergebnis wird mit println auf der Konsole ausgegeben.
 
 Kompilieren und Ausführen:
+```
 	javac Testbed.java && java Testbed
-
+```
 Ausgabe:
+```
 	Summe von [1,2,3] ist 6
-
+```
 Das Ergebnis muss manuell verifiziert werden, indem das erwartete Ergebnis aus Basis des Eingabestrings mit dem tatsächlichen verglichen wird.
 
 Der Vergleich von erwartetem und tatsächlichem Ergebnis kann aber auch direkt im Code implementiert werden:
-
+````java
 	public class Testbed {
 		public static void main(String... args) {
 			StringCalculator stringCalculator = new StringCalculator();
@@ -93,12 +95,12 @@ Der Vergleich von erwartetem und tatsächlichem Ergebnis kann aber auch direkt i
 			}
 		}
 	}
-
+```
 Die Ausgabe enthält nun bereits die Information, ob der Test erfolgreich war oder fehlgeschlagen ist.
 Das manuelle Vergleichen von erwartetem und tatsächlichem Ergebnis wurde automatisiert.
 
 Um auch andere Eingabestrings zu Testen, wird die main Methode entsprechend erweitert:
-
+```java
 	public class Testbed {
 		public static void main(String... args) {
 			StringCalculator stringCalculator = new StringCalculator();
@@ -130,9 +132,9 @@ Um auch andere Eingabestrings zu Testen, wird die main Methode entsprechend erwe
 			}
 		}
 	}
-
+```
 Zur besseren Strukturierung werden die einzelnen Testfälle aus der main Methode in einzelne Methoden extrahiert:
-
+```java
 	public class Testbed {
 	    public static void main(String... args) {
 	        StringCalculator stringCalculator = new StringCalculator();
@@ -173,10 +175,10 @@ Zur besseren Strukturierung werden die einzelnen Testfälle aus der main Methode
 	        }
 	    }
 	}
-
+```
 Es fällt auf, das alle Methoden nahezu identischen Code enthalten.
 Durch Refaktorisierung erhält man folgende Klasse:
-
+```java
 	public class StringCalculatorTester {
 
 		private StringCalculator stringCalculator = new StringCalculator();
@@ -198,7 +200,7 @@ Durch Refaktorisierung erhält man folgende Klasse:
 				}
 			}
 		}
-
+```
 Die Testfälle sind noch unvollständig, können aber leicht durch Erstellung weiterer Testmethoden erweitert werden.
 
 
@@ -212,22 +214,22 @@ Als alternatives Framework existiert in der Java Welt [TestNG](http://testng.org
 
 In JUnit3 können eigene Testklassen durch erweitern der Klasse TestCase erstellt.
 Testmethoden müssen per Konvention den Prefix test im Namen verwenden.
-
+```java
 	public class StringCalculatorTest extends Testcase {
 	    public void testAdd_withEmptyString_returnsZero() throws Exception {
 			// ...
 	    }
 	}
-
+```
 Seit JUnit4 entfällt die Vererbung und der Prefix, stattdessen werden Annotationen verwendet:
-
+```java
 	public class StringCalculatorTest {
 	    @Test
 	    public void add_withEmptyString_returnsZero() throws Exception {
 			// ...
 	    }
 	}
-
+```
 JUnit3 Tests können ohne Anpassungen auch unter JUnit4 ausgeführt werden.
 Die Wahl der Namen der Testklassen und Methoden ist frei.
 Der Klassenname setzt sich in der Regel aus dem Namen der zu testenden Klasse und dem Postfix "Test" zusammen.
@@ -247,7 +249,7 @@ Im ersten Schritt muss das Framework von der [Projektwebseite](https://github.co
 Die jars müssen im Classpath verfügbar gemacht werden.
 
 Anschließend wird die Testklasse erstellt und eine Testmethode hinzugefügt:
-
+```java
 	import org.junit.Test;
 	import static org.junit.Assert.assertEquals;
 
@@ -260,7 +262,7 @@ Anschließend wird die Testklasse erstellt und eine Testmethode hinzugefügt:
 		    assertEquals(expected, sum);
 		}
 	}
-
+```
 Die Methode ist mit @Test annotiert, um sie dem Framework als Testmethode bekannt zu machen.
 Der Name der Testmethoden ist nach folgender Konvention aufgebaut: [Naming Standards for Unit Tests](http://osherove.com/blog/2005/4/3/naming-standards-for-unit-tests.html).
 
@@ -270,20 +272,24 @@ Anschließend wird die zu testende Methode aufgerufen (act)
 und schließlich das tatsächliche Ergebnis mit dem erwarteten verglichen (assert).
 
 Der Test wird mit den zugehörigen Dependencies kompiliert
+```
 	javac -cp .:junit-4.12.jar StringCalculatorTest.java
+```
 und anschließend ausgeführt
+```
 	java -cp .:junit-4.12.jar:hamcrest-core-1.3.jar org.junit.runner.JUnitCore StringCalculatorTest
-
+```
 Ausgabe:
+```
 	JUnit version 4.12
 	.......
 	Time: 0,005
 
 	OK (7 tests)
-
+```
 #### Weitere Methoden hinzufügen
 * Testmethode hinzufügen:
-
+```
 	import org.junit.Test;
 	import static org.junit.Assert.assertEquals;
 
@@ -304,9 +310,9 @@ Ausgabe:
 	    assertEquals(expected, sum);
 		}
 	}
-
+```
 * Refaktorisieren: setUp-Methode
-
+```
 	import org.junit.Test;
 	import org.junit.BeforeClass;
 	import static org.junit.Assert.assertEquals;
@@ -333,9 +339,9 @@ Ausgabe:
 	        assertEquals(expected, sum);
 		}
 	}
-
+```
 * Weitere Annotationen:
-
+```
 	import org.junit.Test;
 	import org.junit.BeforeClass;
 	import org.junit.AfterClass;
@@ -376,7 +382,7 @@ Ausgabe:
 			underTest = null;
 		}
 	}
-
+```
 Die Methode init() wird durch die Annotation @BeforeClass vor der Ausführung der einzelnen Testmethoden aufgerufen.
 Entsprechend wird die mit @AfterClass annotierte Methode cleanup() aufgerufen, nachdem alle Testmethoden abgearbeitet wurden.
 Die Methodennamen sind seit JUnit4 frei wählbar.
