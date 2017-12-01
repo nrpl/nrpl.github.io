@@ -1,4 +1,4 @@
-#Hands on: JDK logging in 10 minutes
+# Hands on: JDK logging in 10 minutes
 ## Intro
 This hands on guide focusses on basic logging
 with JDK logging which is part of JDK since Java 1.4.
