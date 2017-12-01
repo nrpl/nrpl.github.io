@@ -81,7 +81,7 @@ Ausgabe:
 Das Ergebnis muss manuell verifiziert werden, indem das erwartete Ergebnis aus Basis des Eingabestrings mit dem tatsächlichen verglichen wird.
 
 Der Vergleich von erwartetem und tatsächlichem Ergebnis kann aber auch direkt im Code implementiert werden:
-````java
+```java
 	public class Testbed {
 		public static void main(String... args) {
 			StringCalculator stringCalculator = new StringCalculator();
@@ -289,7 +289,7 @@ Ausgabe:
 ```
 #### Weitere Methoden hinzufügen
 * Testmethode hinzufügen:
-```
+```java
 	import org.junit.Test;
 	import static org.junit.Assert.assertEquals;
 
@@ -312,7 +312,7 @@ Ausgabe:
 	}
 ```
 * Refaktorisieren: setUp-Methode
-```
+```java
 	import org.junit.Test;
 	import org.junit.BeforeClass;
 	import static org.junit.Assert.assertEquals;
@@ -341,7 +341,7 @@ Ausgabe:
 	}
 ```
 * Weitere Annotationen:
-```
+```java
 	import org.junit.Test;
 	import org.junit.BeforeClass;
 	import org.junit.AfterClass;
