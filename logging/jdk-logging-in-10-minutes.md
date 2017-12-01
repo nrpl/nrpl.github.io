@@ -45,7 +45,7 @@ public class HelloWorld {
     private static final Logger log = Logger.getLogger(HelloWorld.class.getName());
 
     public static void main(String... args) {
-        log.log(, Level.INFO, "hello world");
+        log.log(Level.INFO, "hello world");
     }
 }
 ```
@@ -54,7 +54,7 @@ Compile and run the application and you will see the log statements on the termi
 INFO: hello world
 ```
 By default JDK logging sends messages to the console.
-You can change this behaviour and specify different appenders, for example
+You can change this behaviour and specify different handlers, for example
 to log into a file.
 
 ## Log Level
@@ -80,13 +80,21 @@ log.log(Level.SEVERE, "this is a severe log message");
 
 Or you can use convenient methods which correspond to a level:
 ```Java
-log.severe("severe");
-log.warning("warning");
-log.info("info");
-log.config("config");
-log.fine("fine");
-log.finer("finer");
-log.finest("finest");
+import java.util.logging.Logger;
+import java.util.logging.Level;
+
+public class HelloWorld {
+    private static final Logger log = Logger.getLogger(HelloWorld.class.getName());
+    public static void main(String... args) {
+        log.severe("severe");
+        log.warning("warning");
+        log.info("info");
+        log.config("config");
+        log.fine("fine");
+        log.finer("finer");
+        log.finest("finest");
+    }
+}
 ```
 If you compile and run the code, you can see, that not all messages are printed:
 ```
@@ -102,7 +110,23 @@ Messages with a lower level are ignored.
 
 You can set the log level of the logger programatically:
 ```Java
-log.setLevel(Level.SEVERE);
+import java.util.logging.Logger;
+import java.util.logging.Level;
+
+public class HelloWorld {
+    private static final Logger log = Logger.getLogger(HelloWorld.class.getName());
+    public static void main(String... args) {
+        log.setLevel(Level.SEVERE);
+
+        log.severe("severe");
+        log.warning("warning");
+        log.info("info");
+        log.config("config");
+        log.fine("fine");
+        log.finer("finer");
+        log.finest("finest");
+    }
+}
 ```
 The logger now excepts only messages of the highest level SEVERE:
 ```
@@ -111,7 +135,9 @@ SEVERE: severe
 
 Now we would like to log everything:
 ```Java
+...
 log.setLevel(Level.ALL);
+...
 ```
 Which outputs
 ```
@@ -131,19 +157,43 @@ but the handler filters out all messages lower than INFO.
 
 You can programatically check the level of a handler:
 ```java
-Handler handler = new ConsoleHandler();
-log.info("The handlers log level is:" handler.getLevel() +" by default");
+import java.util.logging.Logger;
+import java.util.logging.Level;
+import java.util.logging.Handler;
+import java.util.logging.ConsoleHandler;
+
+public class HelloWorld {
+    private static final Logger log = Logger.getLogger(HelloWorld.class.getName());
+    public static void main(String... args) {
+        log.setLevel(Level.SEVERE);
+
+        Handler handler = new ConsoleHandler();
+        log.info("The handlers log level is:" handler.getLevel() +" by default");
+
+        log.severe("severe");
+        log.warning("warning");
+        log.info("info");
+        log.config("config");
+        log.fine("fine");
+        log.finer("finer");
+        log.finest("finest");
+    }
+}
 ```
 which outputs
 ```
+...
 INFO: The handlers log level is: <INFO> by default
+...
 ```
 
 We can create a handler and set the log level to ALL:
 ```java
+...
 Handler handler = new ConsoleHandler();
 handler.setLevel(Level.ALL);
 log.addHandler(handler);
+...
 ```
 
 Now all the messages show up:
