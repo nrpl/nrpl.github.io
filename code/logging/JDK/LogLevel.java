@@ -16,28 +16,28 @@ public class LogLevel {
     private static final Logger log = Logger.getLogger(LogLevel.class.getName());
 
     public static void main(String... args) {
-        log.setLevel(Level.INFO);  // not enough, the standard console logger defaults to Level.INFO
+        log.setLevel(Level.ALL);  // not enough, the standard console logger defaults to Level.INFO
         
         // add ConsoleHandler with defined log level FINEST
         // but this leads to duplicated messages, caused by the
         // default console logger.
         Handler handler = new ConsoleHandler();
-        handler.setLevel(Level.FINEST);
+        log.info("The handlers log level is: <" +handler.getLevel() +"> by default");
+        handler.setLevel(Level.ALL);
         log.addHandler(handler);
 
         // set log level of all configured handlers...
         for(Handler h : log.getHandlers()) {
-            h.setLevel(Level.FINEST);
+            h.setLevel(Level.ALL);
         }
-
-        log.finest("finest");
-        log.finer("finer");
-        log.fine("fine");
+        log.severe("severe");
+        log.warning("warning");
         log.info("info");
         log.config("config");
-        log.warning("warning");
-        log.severe("severe");
+        log.fine("fine");
+        log.finer("finer");
+        log.finest("finest");
 
-        log.log(Level.INFO, "another way to log");
+        //log.log(Level.INFO, "another way to log");
     }
 }

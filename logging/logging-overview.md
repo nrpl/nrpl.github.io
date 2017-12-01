@@ -1,5 +1,4 @@
-Logging Overview
-================
+# Logging Overview
 Logging, besides debugging, can be used to get an insight to an application.
 In contrast to debugging, the source code of the application has to be enriched with log statements in order to generate log messages.
 
@@ -26,11 +25,11 @@ Features of logginframeworks are:
 - Possibility to use various output channels, e.g. files, stdout, database, etc.
 - Logrotation and archiving of logfiles
 
-Since Java 1.4 a basic logging solution is part of the framework which can be found in the package 
+Since Java 1.4 a basic logging solution is part of the framework which can be found in the package
 [java.util.logging](https://docs.oracle.com/javase/9/docs/api/java/util/logging/package-summary.html).
 
 The de facto standard logging framework in the java world is [Log4J](https://logging.apache.org/log4j) which is more powerful than JDK logging and highly configurable.
-The successor of Log4J is [logback](https://logback.qos.ch/). 
+The successor of Log4J is [logback](https://logback.qos.ch/).
 
 To ensure exchangeability of the logging framework it is recommended to use a logging facade.
 A logging facade acts as abstraction for various logging frameworks.
@@ -44,8 +43,10 @@ See [think again](https://articles.qos.ch/thinkAgain.html) for more information.
 
 The modern alternative to JCL is [SLF4J](https://www.slf4j.org).
 In contrast to JCL it uses a static discovery process to determine a logging framework.
-Please refer to [Simplifying distincation betweeen slf4j](http://jayunit100.blogspot.de/2013/10/simplifying-distinction-between-sl4j.html) 
+Please refer to [Simplifying distincation betweeen slf4j](http://jayunit100.blogspot.de/2013/10/simplifying-distinction-between-sl4j.html)
 for an brief description of the differences.
 SLF4J can be used with various logging frameworks.
 JDK logging, log4j and logback are supported.
 
+## See also
+- [JDK logging in 10 minutes](./jdk-logging-in-10-minutes)
