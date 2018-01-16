@@ -3,7 +3,7 @@ Lambdas, also known as Closures, are part of Java since Java 8.
 They enable functional programming in Java.
 By using Lambdas it is possible to avoid boilerplate code and simplify parallel processing.
 
-In Java everything is defined inside a Class.
+In Java everything is defined inside a class.
 But if you just have one method in a class, there is a lot of boilerplate code.
 Lambdas represent a block of code without additional wrapper code.
 To define a lambda expression the following syntax is used:
@@ -11,7 +11,7 @@ To define a lambda expression the following syntax is used:
 (parameter list) -> { expression }
 ```
 
-The following Lambda Expressions calculates the sum of two numbers:
+The following lambda expression calculates the sum of two numbers:
 ```
 (int x, int y) -> { return x+y; }
 ```
@@ -36,20 +36,21 @@ They are also known as Single Abstract Method Type.
 
 Remember: Each method in an interface is by default public and abstract.
 But Interfaces can define static methods and since Java 8 interfaces can define default methods as well.
+A Functional Interface can define more than one method, but it may only define exactly one public abstract method.
 
 Since Java 8 Functional Interfaces can be annotated with `@FunctionalInterface`.
 The annotation is optional.
 The compiler automatically identifies interfaces with only one abstract method as Functional Interfaces.
 
-Examples for Functional Interfaces are:
-- Runnable with its run() method
-- Comparator with its compare() method
-- ActionListener
+Examples of Functional Interfaces are:
+- Runnable with its run method
+- Comparator with its compare method
+- ActionListener with its actionPerformed method
 - EventHandler
 - FileFilter
 - FileNameFilter
 
-Before Java8 you had to define a class which implements the Functional Interface.
+Before Java 8 you had to define a class which implements the Functional Interface.
 This procedure results in boilerplate code as shown below:
 ```
 button.addActionListener( new ActionListener() {
