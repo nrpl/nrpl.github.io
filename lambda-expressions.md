@@ -48,6 +48,7 @@ Examples for Functional Interfaces are:
 - EventHandler
 - FileFilter
 - FileNameFilter
+
 Before Java8 you had to define a class which implements the Functional Interface.
 This procedure results in boilerplate code as shown below:
 ```
@@ -77,5 +78,8 @@ List<String> elements = Arrays.asList("foo", "bar");
 elements.forEach((element) -> { System.out.println(element); });
 ```
 
-The crucial point it, that Lambda expressions can only be defined, if they implement a Functional Interface.
+The crucial point is, that Lambda expressions can only be defined, if they implement a Functional Interface.
 Lambdas make functional programming in Java possible and thus offer an elegant way to write more concise and readable code.
+
+## References
+Java 8 - Die Neuerungen (ISBN 978-3-86490-201-7)
