@@ -175,6 +175,19 @@ Tagging
 * create local tag: ``git tag -a my-tag-name``
 * push local tag to remote repository: ``git push origin my-tag-name``
 
+Username and Email
+------------------
+* show your username: ``git config user.name``
+* show your email: `` git config user.email``
+* show all config settings: ``git config --list``
+
+You can set global and project specific values for username and email:
+* set global values: ``git config --global user.name "foo"
+* set project specific values in project root: ``git config user.name "bar"``
+
+The global settings are stored in the ``.gitconfig`` file in your home directory.
+The local settings are stored in the ``config`` file in the ``.git`` directory of your project root. 
+
 Additional information
 ----------------------
 * [Git on GitHub](https://github.com/git/git)
