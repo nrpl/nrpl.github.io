@@ -182,7 +182,7 @@ Username and Email
 * show all config settings: ``git config --list``
 
 You can set global and project specific values for username and email:
-* set global values: ``git config --global user.name "foo"
+* set global values: ``git config --global user.name "foo"``
 * set project specific values in project root: ``git config user.name "bar"``
 
 The global settings are stored in the ``.gitconfig`` file in your home directory.
