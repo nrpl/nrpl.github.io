@@ -3,15 +3,14 @@ Readinglist
 
 Currently Reading
 -----------------
+- Cloud Native Java, Designing resilient systems with spring boot, spring cloud and cloud foundry (since November 2017)
 - Moderne Softwarearchitektur, Johannes Siedersleben, dpunkt.verlag (since September 2017)
-- [Effective Java, Joshua Bloch, Addison Wesley (since April 2017)](effective-java)
 - Apprenticeship Patterns, David H. Hoover & Adewale Oshineye, O'Reilly (since August 2016)
 - Code Complete, Second Edition, Steve McConnell, Microsoft Press (since September 2016)
 - Test-Driven Development by Example, Kent Beck, Addison Wesley (since August 2016)
 
 Queued
 ------
-- Cloud Native Java, Designing resilient systems with spring boot, spring cloud and cloud foundry
 - Using Docker, Developing and Deploying Software with Containers
 - Release It! Michael T. Nygard
 - Refactoring
@@ -24,6 +23,7 @@ Queued
 
 Finished
 --------
+- [Effective Java, Joshua Bloch, Addison Wesley (April 2017 - July 2017)](effective-java)
 - The Pragmatic Programmer, Andrew Hunt & David Thomas, Addison Wesley (October 2016 - January 2017)
 - The Software Craftsman: Professionalism, Pragmatism, Pride, Sandro Mancuso, Prentice Hall (August 2016)
 - The Clean Coder: A Code of Conduct for Professional Programmers, Robert C. Martin, Prentice Hall (July 2016)
