@@ -22,7 +22,7 @@ Queued
 
 Finished
 --------
-- [Test-Driven Development by Example, Kent Beck, Addison Wesley (August 2016 - March 2018)](tdd-by-example.md)
+- [Test-Driven Development by Example, Kent Beck, Addison Wesley (August 2016 - March 2018)](tdd-by-example)
 - [Effective Java, Joshua Bloch, Addison Wesley (April 2017 - July 2017)](effective-java)
 - The Pragmatic Programmer, Andrew Hunt & David Thomas, Addison Wesley (October 2016 - January 2017)
 - The Software Craftsman: Professionalism, Pragmatism, Pride, Sandro Mancuso, Prentice Hall (August 2016)
