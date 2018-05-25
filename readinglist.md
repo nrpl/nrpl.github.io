@@ -12,13 +12,16 @@ Queued
 ------
 - Using Docker, Developing and Deploying Software with Containers
 - Release It! Michael T. Nygard
-- Refactoring
+- Refactoring: Improving the design of existing code by Martin Fowler
 - Domain-Driven Design
 - Beyond Legacy Code
 - Agile Software Development: Principles, Patterns and Practices
 - The Mythical Man Month
 - Patterns of Enterprise Application Architecture
 - Growing Object-Oriented Software, Guided by Tests by Steve Freeman and Nat Pryce
+- Working effectively with legace code by Micheal Feathers
+- Test-Driven by Lasse Koskela
+- Extreme Programming: Embrace Change by Kent Beck
 
 Finished
 --------
