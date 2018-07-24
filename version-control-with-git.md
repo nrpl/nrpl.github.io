@@ -114,6 +114,11 @@ To test this, you can create a class-file and use ``git status`` to check that i
 
 GitHub offers a [collection of typically gitignore templates](https://github.com/github/gitignore) for different project types.
 
+Include empty directories
+-------------------------
+By default git ignores empty directories.
+To be able to commit empty directories, you can add a hidden file named `.gitkeep`.
+
 
 Switch between Versions
 -----------------------
