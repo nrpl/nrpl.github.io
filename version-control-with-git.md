@@ -193,6 +193,13 @@ You can set global and project specific values for username and email:
 The global settings are stored in the ``.gitconfig`` file in your home directory.
 The local settings are stored in the ``config`` file in the ``.git`` directory of your project root. 
 
+Rename Branch
+-------------
+To rename a branch local and remote:
+1. Rename local branch: ``git branch -m oldname newname``
+2. Delete old branch: ``git push origin :oldname``
+3. Push new branch and connect local to remote: ``git push --set-upstream origin newname``
+
 Additional information
 ----------------------
 * [Git on GitHub](https://github.com/git/git)
