@@ -17,6 +17,6 @@ export JAVA_HOME=`/usr/libexec/java_home`
 7. Have fun with the new Features!
 
 Please use the links below for additional information on the topic:
-* (https://dzone.com/articles/installing-openjdk-11-on-macos)
-* (https://medium.com/notes-for-geeks/java-home-and-java-home-on-macos-f246cab643bd)
-* (https://www.mkyong.com/java/how-to-set-java_home-environment-variable-on-mac-os-x/)
+* https://dzone.com/articles/installing-openjdk-11-on-macos
+* https://medium.com/notes-for-geeks/java-home-and-java-home-on-macos-f246cab643bd
+* https://www.mkyong.com/java/how-to-set-java_home-environment-variable-on-mac-os-x/
