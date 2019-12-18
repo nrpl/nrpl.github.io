@@ -5,3 +5,4 @@ draft/
 target/
 *.class
 *.jar
+.mvn
