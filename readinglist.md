@@ -3,6 +3,7 @@ Readinglist
 
 Currently Reading
 -----------------
+- Clean Architecture - A Craftman's Guide to Software Structure and Design, Rober C. Martin, Prentice Hall (since March 2019)
 - Cloud Native Java, Designing resilient systems with spring boot, spring cloud and cloud foundry (since November 2017)
 - Moderne Softwarearchitektur, Johannes Siedersleben, dpunkt.verlag (since September 2017)
 - Apprenticeship Patterns, David H. Hoover & Adewale Oshineye, O'Reilly (since August 2016)
@@ -10,7 +11,6 @@ Currently Reading
 
 Queued
 ------
-- Using Docker, Developing and Deploying Software with Containers
 - Release It! Michael T. Nygard
 - Refactoring: Improving the design of existing code by Martin Fowler
 - Domain-Driven Design
@@ -25,6 +25,9 @@ Queued
 
 Finished
 --------
+- Developer Testing - Building Quality into Software, Alexander Tarlinder, Addison Wesley (November 2019)
+- Code - The hidden language of Computer Hardware and Software, Charles Petzold, Microsoft Press (July-August 2019)
+- Working effectively with Legacy Code, Michael C. Feathers, Prentice Hall (March - April 2019)
 - [Test-Driven Development by Example, Kent Beck, Addison Wesley (August 2016 - March 2018)](tdd-by-example)
 - [Effective Java, Joshua Bloch, Addison Wesley (April 2017 - July 2017)](effective-java)
 - The Pragmatic Programmer, Andrew Hunt & David Thomas, Addison Wesley (October 2016 - January 2017)
