@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <style>
+    div {
+      width: 50px;
+      height: 50px;
+      margin: 5px;
+      border: 1px solid red;
+      background-color: blue;
+      display: none;
+    }
+
+    .active {
+      background-color: orange;
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="slide-left">slide left</div>
+  <div id="slide-right">slide right</div>
+  <div id="prev">prev</div>
+  <div id="next">next</div>
+  <div id="rating-1">1</div>
+  <div id="rating-2">2</div>
+  <div id="rating-3">3</div>
+  <div id="rating-4">4</div>
+  <div id="rating-5">5</div>
+  <div id="rating-6">6</div>
+
+  <script>
+function hideAll() {
+  let divs = document.getElementsByTagName("div");
+  Object.entries(divs).map((object) => { object[1].classList.remove("active") });
+}
+
+function showDiv(id) {
+    document.getElementById(id).classList.add("active");
+}
+
+  window.addEventListener("keydown", function (event) {
+if (event.defaultPrevented) {
+  return; // Do nothing if the event was already processed
+}
+
+switch (event.key) {
+  case "ArrowDown":
+    hideAll();
+    showDiv("slide-left");
+    break;
+  case "ArrowUp":
+    hideAll();
+    showDiv("slide-right");
+    break;
+  case "ArrowLeft":
+    hideAll();
+    showDiv("prev");
+    break;
+  case "ArrowRight":
+    hideAll();
+    showDiv("next");
+    break;
+  case "1":
+    hideAll();
+    showDiv("1");
+    break;
+  case "2":
+    hideAll();
+    showDiv("2")
+    break;
+  case "2":
+    hideAll();
+    showDiv("2")
+    break;
+  case "3":
+    hideAll();
+    showDiv("3")
+    break;
+  case "4":
+    hideAll();
+    showDiv("4")
+    break;
+  case "5":
+    hideAll();
+    showDiv("5")
+    break;
+  case "6":
+    hideAll();
+    showDiv("6")
+    break;
+
+  default:
+    console.log(event.key);
+    return; // Quit when this doesn't handle the key event.
+}
+
+// Cancel the default action to avoid it being handled twice
+event.preventDefault();
+}, true);
+  </script>
+</body>
+
+</html>
