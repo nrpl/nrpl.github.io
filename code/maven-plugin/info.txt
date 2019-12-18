@@ -1,0 +1,2 @@
+https://maven.apache.org/plugins-archives/maven-archetype-plugin-1.0-alpha-7/examples/mojo.html
+https://maven.apache.org/guides/plugin/guide-java-plugin-development.html
