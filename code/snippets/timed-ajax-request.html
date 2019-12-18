@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+      <p>
+        Url: <input type="url" id="input-url" name="input-url" value=""><br/>
+        Request Inverval (seconds): <input type="number" id="input-interval" name="input-interval" value="1"><br/>
+        <button type="button" id="btn-start" name="button">Start</button>
+        <button type="button" id="btn-stop" name="button">Stop</button>
+      </p>
+      <p>
+        Request in <span id="time">&nbsp;</span>
+      </p>
+      <p>
+        <span id="req-count">&nbsp;</span>
+        <br>
+        <span id="req-status">&nbsp;</span>
+        <br>
+        <span id="req-content">&nbsp;</span>
+      </p>
+  </body>
+  <script type="text/javascript">
+    document.getElementById("btn-start").addEventListener("click", startBtnHandler);
+    document.getElementById("btn-stop").addEventListener("click", stopBtnHandler);
+
+    var requestIntervalSeconds = document.getElementById("input-interval").value;
+    var url = document.getElementById("input-url").value;
+
+    var countDownStep = 100;  // jede Sekunde
+    var interval = 10;  // after how many steps should be the action
+    var i = 0;
+    var timer;
+    var requestCounter = 0;
+
+    function startBtnHandler() {
+      document.getElementById("btn-start").disabled = true;
+      document.getElementById("btn-stop").disabled = false;
+      timer = setInterval(function() {
+        ++i;
+        var x = i%interval;
+        if (x === 0) {
+          performAction();
+        }
+        document.getElementById("time").textContent = interval-x;
+      }, countDownStep);
+    }
+
+    function stopBtnHandler() {
+      document.getElementById("btn-start").disabled = false;
+      document.getElementById("btn-stop").disabled = true;
+      clearInterval(timer);
+    }
+
+    function performAction() {
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+        if(this.readyState == 4) {
+          setStatus(this.status);
+          setRequestCounterContent(++requestCounter);
+          if (this.status == 200) {
+            setContent(this.responseText);
+          } else {
+            setContent("");
+          }
+        }
+
+      }
+      xhttp.open("GET", url, true);
+      xhttp.send();
+    }
+
+    function setStatus(statusCode) {
+      document.getElementById("req-status").textContent = statusCode;
+    }
+
+    function setContent(content) {
+      document.getElementById("req-content").textContent = content;
+    }
+
+    function setRequestCounterContent(requestCount) {
+      document.getElementById("req-count").textContent = requestCount;
+    }
+  </script>
+</html>
