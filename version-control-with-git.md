@@ -200,6 +200,18 @@ To rename a branch local and remote:
 2. Delete old branch: ``git push origin :oldname``
 3. Push new branch and connect local to remote: ``git push --set-upstream origin newname``
 
+Configuration
+-------------
+Git uses three levels of configuration:
+1. System wide configuration is located in 
+2. Global configuration is user specific and located in ``~/.gitconfig``
+3. Project configuration is located in git .git directory of your repository
+
+Each level can add or override values from the preceding level.
+Project specific config overrides global config which overrides system wide config.
+
+To list the actual config you can use the command ``git config --list --show-origin``
+
 Additional information
 ----------------------
 * [Git on GitHub](https://github.com/git/git)
