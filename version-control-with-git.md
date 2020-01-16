@@ -210,7 +210,12 @@ Git uses three levels of configuration:
 Each level can add or override values from the preceding level.
 Project specific config overrides global config which overrides system wide config.
 
-To list the actual config you can use the command ``git config --list --show-origin``
+To list the actual config and the origin you can use the command ``git config --list --show-origin``
+
+You can set config values system wide, globally or locally in your project using the following commands:
+
+* ``git config --global user.name="Foo Bar"`` (global is default, you can skip this flag)
+* ``git config --local user.name="Foo Bar"``
 
 Additional information
 ----------------------
