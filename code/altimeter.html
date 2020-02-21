@@ -5,6 +5,8 @@
 <canvas id="canvas" width="400" height="400" style="background-color:#000">
 </canvas>
 
+<div id="info"></div>
+
 <script>
 var canvas = document.getElementById("canvas");
 var ctx = canvas.getContext("2d");
@@ -21,9 +23,10 @@ function getGpsPosition() {
 }
 
 function zeigePosition(pos) {
-  var height = pos.coords.altimeter;
+  console.log(pos);
+  var height = pos.coords.altitude;
   if (height === undefined) {
-    alert("Es konnte keine Höhe ermittelt werden");
+    document.getElementById("info").innerHTML("Es konnte keine Höhe ermittelt werden");
     height = 0;
   }
 
@@ -33,16 +36,16 @@ function zeigePosition(pos) {
 function zeigeFehler(error) {
     switch(error.code) {
         case error.PERMISSION_DENIED:
-            x.innerHTML = "Benutzer lehnte Standortabfrage ab."
+            alert("Benutzer lehnte Standortabfrage ab.");
             break;
         case error.POSITION_UNAVAILABLE:
-            x.innerHTML = "Standortdaten sind nicht verfügbar."
+            alert("Standortdaten sind nicht verfügbar.");
             break;
         case error.TIMEOUT:
-            x.innerHTML = "Die Standortabfrage dauerte zu lange (Time-out)."
+            alert("Die Standortabfrage dauerte zu lange (Time-out).");
             break;
         case error.UNKNOWN_ERROR:
-            x.innerHTML = "unbekannter Fehler."
+            alert("unbekannter Fehler.");
             break;
     }
 }
