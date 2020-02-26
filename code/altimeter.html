@@ -24,13 +24,20 @@ function getGpsPosition() {
 
 function zeigePosition(pos) {
   console.log(pos);
-  var height = pos.coords.altitude;
+  var ellipsiodHeight = pos.coords.altitude;
+  var geoidHeight = getGeoidHeight(pos.coords.latitude, pos.coords.longitude);
+  var height = ellipsiodHeight - geoidHeight;
   if (height === undefined) {
     document.getElementById("info").innerHTML("Es konnte keine Höhe ermittelt werden");
     height = 0;
   }
 
   drawAltimeter(height);
+}
+
+function getGeoidHeight(lat, lon) {
+  console.log("lat: " +lat +" long: " +lon);
+  return 48;
 }
 
 function zeigeFehler(error) {
