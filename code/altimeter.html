@@ -23,18 +23,19 @@ function getGpsPosition() {
 }
 
 function zeigePosition(pos) {
+  var height = 0;
   console.log(pos);
-  var gpsHeight = pos.coords.altitude;
-  console.log("GPS Height: " +gpsHeight);
-  var geoidHeight = getGeoidHeight(pos.coords.latitude, pos.coords.longitude);
-  var height = gpsHeight - geoidHeight;
-  console.log("orthemetric height is " +height);
-  if (gpsHeight === undefined || gpsHeight === null) {
+  if (pos.coords.altitude === undefined || pos.coords.altitude === null) {
     document.getElementById("info").innerHTML="Es konnte keine Höhe ermittelt werden";
-    height = 0;
   } else {
-    drawAltimeter(height);
-  }
+    var gpsHeight = pos.coords.altitude;
+    console.log("GPS Height: " +gpsHeight);
+    var geoidHeight = getGeoidHeight(pos.coords.latitude, pos.coords.longitude);
+    console.log("Geoid Height: " +geiodHeight);
+    var height = gpsHeight - geoidHeight;
+    console.log("orthemetric height is " +height);
+  } 
+  drawAltimeter(height);
 }
 
 function getGeoidHeight(lat, lon) {
