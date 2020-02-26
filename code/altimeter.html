@@ -26,7 +26,8 @@ function zeigePosition(pos) {
   console.log(pos);
   var ellipsiodHeight = pos.coords.altitude;
   var geoidHeight = getGeoidHeight(pos.coords.latitude, pos.coords.longitude);
-  var height = ellipsiodHeight - geoidHeight;
+  var height = ellipsoidHeight - geoidHeight;
+  console.log("orthemetric height is " +height);
   if (height === undefined) {
     document.getElementById("info").innerHTML("Es konnte keine Höhe ermittelt werden");
     height = 0;
