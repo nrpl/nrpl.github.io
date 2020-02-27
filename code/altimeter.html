@@ -26,7 +26,11 @@ function zeigePosition(pos) {
   var height = 0;
   console.log(pos);
   if (pos.coords.altitude === undefined || pos.coords.altitude === null) {
-    document.getElementById("info").innerHTML="Es konnte keine Höhe ermittelt werden";
+    document.getElementById("info").innerHTML="Es konnte keine Höhe ermittelt werden"
+	+ "<br>Lat: " +pos.coords.latitude
+	+ "<br>Long: " +pos.coords.longitude
+	+ "<br>Speed: " +pos.coords.speed
+	+ "<br>Alt: " +pos.coords.altitude;
   } else {
     var gpsHeight = pos.coords.altitude;
     console.log("GPS Height: " +gpsHeight);
